@@ -1,0 +1,119 @@
+/* src/features/typography-tool/Island.css */
+
+.island-container {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+/* Header */
+.island-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 1.5rem;
+}
+
+.island-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.02em;
+}
+
+.island-subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Body - Grid Layout */
+.island-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+/* Columna Izquierda - Controles */
+.island-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Columna Derecha - Preview */
+.island-preview {
+  background-color: var(--bg-body);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  border: 1px solid var(--border-subtle);
+  min-height: 400px;
+}
+
+/* Secciones individuales */
+.control-section {
+  background-color: var(--bg-input);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  border: 1px solid var(--border-subtle);
+}
+
+.section-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 1rem 0;
+}
+
+/* Placeholders (para desarrollo) */
+.placeholder-box {
+  background-color: var(--bg-card);
+  border: 1px dashed var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.code-placeholder {
+  font-family: 'Fira Code', 'Consolas', monospace;
+  background-color: var(--code-bg);
+  color: var(--primary);
+}
+
+.preview-placeholder {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive - Móvil */
+@media (max-width: 768px) {
+  .island-container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .island-body {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .island-preview {
+    min-height: 300px;
+  }
+
+  .island-title {
+    font-size: 1.5rem;
+  }
+}
