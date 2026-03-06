@@ -1,6 +1,10 @@
 // src/features/typography-tool/Island.jsx
 import React from 'react';
+import UnitConverter from './UnitConverter';
+import ClampGenerator from './ClampGenerator';
+
 import './Island.css';
+
 
 const Island = () => {
   return (
@@ -16,22 +20,13 @@ const Island = () => {
       {/* Cuerpo principal dividido en 2 columnas */}
       <div className="island-body">
         
-        {/* Columna Izquierda: Controles */}
         <section className="island-controls">
-          {/* Aquí irá UnitConverter.jsx */}
-          <div className="control-section">
-            <h2 className="section-title">Unit Converter</h2>
-            <div className="placeholder-box">
-              Unit Converter Component
-            </div>
+           <div className="control-section">
+            <UnitConverter />
           </div>
 
-          {/* Aquí irá ClampGenerator.jsx */}
           <div className="control-section">
-            <h2 className="section-title">Clamp Generator</h2>
-            <div className="placeholder-box">
-              Clamp Generator Component
-            </div>
+            <ClampGenerator />
           </div>
 
           {/* Aquí irá el Output de código */}

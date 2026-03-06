@@ -1,0 +1,398 @@
+/* src/features/typography-tool/UnitConverter.css */
+
+.unit-converter {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.converter-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin: 0;
+}
+
+.converter-row {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+    min-width: 120px;
+}
+
+.input-group.full-width {
+    flex: 100%;
+}
+
+.input-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.input-hint {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    margin-top: 0.25rem;
+    opacity: 0.7;
+}
+
+.input-field,
+.select-field {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 0.75rem 1rem;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-field:focus,
+.select-field:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.input-field:hover,
+.select-field:hover {
+    border-color: var(--text-muted);
+}
+
+.select-field {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%239CA3AF'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+    padding-right: 2.5rem;
+}
+
+.converter-arrow {
+    font-size: 1.25rem;
+    color: var(--primary);
+    padding-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.converter-result {
+    background-color: var(--code-bg);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.result-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.result-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    font-family: 'Fira Code', 'Consolas', monospace;
+}
+
+.result-formula {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-family: 'Fira Code', 'Consolas', monospace;
+}
+
+/* ... (todo el CSS anterior se mantiene) ... */
+
+/* Header del base font size con botón */
+.base-font-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.base-font-header .input-label {
+    margin: 0;
+}
+
+/* Botón toggle */
+.toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: transparent;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 0.5rem 0.75rem;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.toggle-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background-color: rgba(99, 102, 241, 0.1);
+}
+
+.toggle-btn.active {
+    border-color: var(--success);
+    color: var(--success);
+    background-color: rgba(16, 185, 129, 0.1);
+}
+
+.toggle-btn .icon {
+    width: 14px;
+    height: 14px;
+}
+
+/* Fila de edición */
+.base-font-edit-row {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.base-font-edit-row .input-field {
+    flex: 1;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.base-font-edit-row .input-field.editable {
+    animation: pulse-border 0.3s ease;
+}
+
+/* Botón cancelar */
+.cancel-btn {
+    background-color: transparent;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 0.75rem 1rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.cancel-btn:hover {
+    border-color: var(--error);
+    color: var(--error);
+}
+
+/* Display cuando no está editando */
+.base-font-display {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 0.75rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.display-value {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-main);
+    font-family: 'Fira Code', 'Consolas', monospace;
+}
+
+.display-hint {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Animación */
+@keyframes pulse-border {
+    0% {
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 0 6px rgba(99, 102, 241, 0.1);
+    }
+
+    100% {
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    }
+}
+
+/* src/features/typography-tool/UnitConverter.css */
+
+/* ... (tu CSS anterior) ... */
+
+/* Ocultar flechas del input number (Chrome, Safari, Edge, Opera) */
+.input-field[type="number"]::-webkit-outer-spin-button,
+.input-field[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Ocultar flechas del input number (Firefox) */
+.input-field[type="number"] {
+    appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+/* Toast Notification - Corregido con translateY */
+.toast {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  z-index: 10;
+  animation: slide-in 0.3s ease;
+  max-width: 300px;
+}
+
+.toast-error {
+  background-color: rgba(239, 68, 68, 0.1);
+  border: 1px solid var(--error);
+  color: var(--error);
+}
+
+.toast-message {
+  flex: 1;
+}
+
+.toast-close {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  opacity: 0.7;
+}
+
+.toast-close:hover {
+  opacity: 1;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(100%); /* Cambiado de translateX */
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ... (todo el CSS anterior se mantiene) ... */
+
+/* Resultado con botón de copiar */
+.converter-result {
+  background-color: var(--code-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.result-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Botón de copiar */
+.copy-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.4rem 0.75rem;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.copy-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background-color: rgba(99, 102, 241, 0.1);
+}
+
+.copy-btn.copied {
+  border-color: var(--success);
+  color: var(--success);
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+.copy-btn .icon {
+  width: 14px;
+  height: 14px;
+}
+
+.result-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  font-family: 'Fira Code', 'Consolas', monospace;
+}
+
+.result-formula {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-family: 'Fira Code', 'Consolas', monospace;
+}
