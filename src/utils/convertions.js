@@ -27,7 +27,7 @@ export const convertUnit = (
   fromUnit,
   toUnit,
   baseFontSize = DEFAULT_BASE_FONT_SIZE,
-  viewportSize = 1920, // Default viewport width para cálculos
+  viewportSize = 1920, 
 ) => {
   if (fromUnit === toUnit) return value;
 
