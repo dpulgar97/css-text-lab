@@ -13,7 +13,7 @@
     margin: 0;
 }
 
-.converter-row {
+.converter-row, .converter-row-first {
     display: flex;
     gap: 1rem;
     align-items: flex-end;
@@ -74,6 +74,13 @@
     border-color: var(--text-muted);
 }
 
+.input-field::placeholder {
+    color: var(--text-muted);
+    opacity: 0.5;
+    appearance: none;
+    -moz-appearance: textfield;
+}
+
 .select-field {
     cursor: pointer;
     appearance: none;
@@ -121,7 +128,6 @@
     font-family: 'Fira Code', 'Consolas', monospace;
 }
 
-/* ... (todo el CSS anterior se mantiene) ... */
 
 /* Header del base font size con botón */
 .base-font-header {
@@ -243,156 +249,151 @@
     }
 }
 
-/* src/features/typography-tool/UnitConverter.css */
-
-/* ... (tu CSS anterior) ... */
-
-/* Ocultar flechas del input number (Chrome, Safari, Edge, Opera) */
 .input-field[type="number"]::-webkit-outer-spin-button,
 .input-field[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 /* Ocultar flechas del input number (Firefox) */
 .input-field[type="number"] {
     appearance: textfield;
-  -moz-appearance: textfield;
+    -moz-appearance: textfield;
 }
 
 /* Toast Notification - Corregido con translateY */
 .toast {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  padding: 0.75rem 1rem;
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: 0.85rem;
-  font-weight: 500;
-  z-index: 10;
-  animation: slide-in 0.3s ease;
-  max-width: 300px;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    z-index: 10;
+    animation: slide-in 0.3s ease;
+    max-width: 300px;
 }
 
 .toast-error {
-  background-color: rgba(239, 68, 68, 0.1);
-  border: 1px solid var(--error);
-  color: var(--error);
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid var(--error);
+    color: var(--error);
 }
 
 .toast-message {
-  flex: 1;
+    flex: 1;
 }
 
 .toast-close {
-  background: none;
-  border: none;
-  color: inherit;
-  font-size: 1.25rem;
-  cursor: pointer;
-  padding: 0;
-  line-height: 1;
-  opacity: 0.7;
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    opacity: 0.7;
 }
 
 .toast-close:hover {
-  opacity: 1;
+    opacity: 1;
 }
+
 
 @keyframes slide-in {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
+    from {
+        transform: translateY(100%);
+        /* Cambiado de translateX */
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
-@keyframes slide-in {
-  from {
-    transform: translateY(100%); /* Cambiado de translateX */
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-/* ... (todo el CSS anterior se mantiene) ... */
-
-/* Resultado con botón de copiar */
 .converter-result {
-  background-color: var(--code-bg);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 1rem 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  position: relative;
+    background-color: var(--code-bg);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
 }
 
 .result-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .result-label {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 /* Botón de copiar */
 .copy-btn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background-color: transparent;
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 0.4rem 0.75rem;
-  color: var(--text-muted);
-  font-size: 0.75rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: transparent;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 0.4rem 0.75rem;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .copy-btn:hover {
-  border-color: var(--primary);
-  color: var(--primary);
-  background-color: rgba(99, 102, 241, 0.1);
+    border-color: var(--primary);
+    color: var(--primary);
+    background-color: rgba(99, 102, 241, 0.1);
 }
 
 .copy-btn.copied {
-  border-color: var(--success);
-  color: var(--success);
-  background-color: rgba(16, 185, 129, 0.1);
+    border-color: var(--success);
+    color: var(--success);
+    background-color: rgba(16, 185, 129, 0.1);
 }
 
 .copy-btn .icon {
-  width: 14px;
-  height: 14px;
+    width: 14px;
+    height: 14px;
 }
 
 .result-value {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--primary);
-  font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    font-family: 'Fira Code', 'Consolas', monospace;
 }
 
 .result-formula {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-family: 'Fira Code', 'Consolas', monospace;
+}
+
+@media (max-width: 768px) {
+    .converter-row, .converter-row-first {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .converter-arrow {
+        display: none;
+    }
 }

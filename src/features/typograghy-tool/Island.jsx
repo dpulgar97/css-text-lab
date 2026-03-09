@@ -1,15 +1,24 @@
 // src/features/typography-tool/Island.jsx
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import UnitConverter from './UnitConverter';
 import ClampGenerator from './ClampGenerator';
+import ViewportPreview from './ViewportPreview';
 
 import './Island.css';
 
-
 const Island = () => {
+  // Estado compartido para el clamp generado
+  const [generatedClamp, setGeneratedClamp] = useState('');
+  const [fontUnit, setFontUnit] = useState('rem');
+
+  // Callback que recibe ClampGenerator
+  const handleClampChange = useCallback((clamp, unit) => {
+    setGeneratedClamp(clamp);
+    setFontUnit(unit);
+  }, []);
+
   return (
     <div className="island-container">
-      {/* Header de la herramienta */}
       <header className="island-header">
         <h1 className="island-title">Typography Tool</h1>
         <p className="island-subtitle">
@@ -17,36 +26,26 @@ const Island = () => {
         </p>
       </header>
 
-      {/* Cuerpo principal dividido en 2 columnas */}
       <div className="island-body">
-        
+
+        {/* Sección de Controles */}
         <section className="island-controls">
-           <div className="control-section">
+          <div className="control-section">
             <UnitConverter />
           </div>
 
           <div className="control-section">
-            <ClampGenerator />
-          </div>
-
-          {/* Aquí irá el Output de código */}
-          <div className="control-section">
-            <h2 className="section-title">CSS Output</h2>
-            <div className="placeholder-box code-placeholder">
-              font-size: clamp(...);
-            </div>
+            {/* Pasamos el callback al generador */}
+            <ClampGenerator onClampChange={handleClampChange} />
           </div>
         </section>
 
-        {/* Columna Derecha: Preview Dinámico */}
+        {/* Sección de Preview (recibe los valores) */}
         <section className="island-preview">
-          {/* Aquí irá ViewportPreview.jsx */}
-          <div className="preview-container">
-            <h2 className="section-title">Live Preview</h2>
-            <div className="placeholder-box preview-placeholder">
-              Viewport Preview Component
-            </div>
-          </div>
+          <ViewportPreview
+            clampValue={generatedClamp}
+            fontUnit={fontUnit}
+          />
         </section>
 
       </div>

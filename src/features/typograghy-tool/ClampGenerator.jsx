@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useClamp } from '../../hooks/useClamp';
 import './ClampGenerator.css';
 
-const ClampGenerator = () => {
+const ClampGenerator = ({ onClampChange }) => {
     const {
         viewportMin,
         viewportMax,
@@ -20,6 +20,12 @@ const ClampGenerator = () => {
         handleFontSizeMaxChange,
         handleFontUnitChange,
     } = useClamp();
+
+    React.useEffect(() => {
+        if (clampResult?.full && onClampChange) {
+            onClampChange(clampResult.full, fontUnit);
+        }
+    }, [clampResult, fontUnit, onClampChange]);
 
     const [isCopied, setIsCopied] = useState(false);
 
@@ -52,6 +58,7 @@ const ClampGenerator = () => {
                             className="input-field"
                             min="0"
                             step="10"
+                            lang="en-US"
                         />
                         <span className="input-unit">{viewportUnit}</span>
                     </div>
@@ -68,6 +75,7 @@ const ClampGenerator = () => {
                             className="input-field"
                             min="0"
                             step="10"
+                            lang="en-US"
                         />
                         <span className="input-unit">{viewportUnit}</span>
                     </div>
@@ -80,19 +88,20 @@ const ClampGenerator = () => {
                     <label htmlFor="fontSizeMin" className="input-label">Font Size Min</label>
                     <div className="input-with-unit">
                         <input
-                            type="number"
+                            type="text"
                             id="fontSizeMin"
                             value={fontSizeMin}
                             onChange={handleFontSizeMinChange}
                             className="input-field"
-                            min="0"
-                            step="any"
+                            inputMode="decimal"
                             lang="en-US"
+                            placeholder="0"
                         />
                         <select
                             value={fontUnit}
                             onChange={handleFontUnitChange}
                             className="unit-select"
+                            lang="en-US"
                         >
                             {fontUnits.map((unit) => (
                                 <option key={unit.value} value={unit.value}>
@@ -107,19 +116,20 @@ const ClampGenerator = () => {
                     <label htmlFor="fontSizeMax" className="input-label">Font Size Max</label>
                     <div className="input-with-unit">
                         <input
-                            type="number"
+                            type="text"
                             id="fontSizeMax"
                             value={fontSizeMax}
                             onChange={handleFontSizeMaxChange}
                             className="input-field"
-                            min="0"
-                            step="any"
+                            inputMode="decimal"
                             lang="en-US"
+                            placeholder="0"
                         />
                         <select
                             value={fontUnit}
                             onChange={handleFontUnitChange}
                             className="unit-select"
+                            lang="en-US"
                         >
                             {fontUnits.map((unit) => (
                                 <option key={unit.value} value={unit.value}>

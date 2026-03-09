@@ -61,7 +61,7 @@ const UnitConverter = () => {
       <h2 className="converter-title">Unit Converter</h2>
       
       {/* Fila de entrada y unidades */}
-      <div className="converter-row">
+      <div className="converter-row-first">
         {/* ... (inputs de Value, From, To iguales) ... */}
         <div className="input-group">
           <label htmlFor="inputValue" className="input-label">Value</label>
