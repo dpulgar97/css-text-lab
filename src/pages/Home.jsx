@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import Island from '../features/typograghy-tool/Island';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
+import FAQ from '../components/FAQ';
 import './Home.css';
 
 const Home = () => {
@@ -138,67 +139,7 @@ const Home = () => {
                     </div>
                 </section>
 
-                {/* Features Section */}
-                <section className="features-section">
-                    <div className="container">
-                        <div className="section-header">
-                            <h2 className="section-title">Why Developers Use This Tool</h2>
-                            <p className="section-subtitle">
-                                Built by developers, for developers. No fluff, just functionality.
-                            </p>
-                        </div>
-
-                        <div className="features-grid">
-                            <div className="feature-item">
-                                <div className="feature-icon">⚡</div>
-                                <h4 className="feature-title">Lightning Fast</h4>
-                                <p className="feature-desc">
-                                    No loading screens, no signup. Just open and start working.
-                                </p>
-                            </div>
-
-                            <div className="feature-item">
-                                <div className="feature-icon">🎯</div>
-                                <h4 className="feature-title">Accurate Calculations</h4>
-                                <p className="feature-desc">
-                                    Precise formulas for clamp(), rem, em, and viewport units.
-                                </p>
-                            </div>
-
-                            <div className="feature-item">
-                                <div className="feature-icon">📱</div>
-                                <h4 className="feature-title">Mobile Responsive</h4>
-                                <p className="feature-desc">
-                                    Works perfectly on any device. Test your typography anywhere.
-                                </p>
-                            </div>
-
-                            <div className="feature-item">
-                                <div className="feature-icon">🔓</div>
-                                <h4 className="feature-title">100% Free</h4>
-                                <p className="feature-desc">
-                                    No paywalls, no premium features. Free forever for everyone.
-                                </p>
-                            </div>
-
-                            <div className="feature-item">
-                                <div className="feature-icon">🎨</div>
-                                <h4 className="feature-title">Real Font Preview</h4>
-                                <p className="feature-desc">
-                                    See how different typefaces affect your typography scale.
-                                </p>
-                            </div>
-
-                            <div className="feature-item">
-                                <div className="feature-icon">📋</div>
-                                <h4 className="feature-title">One-Click Copy</h4>
-                                <p className="feature-desc">
-                                    Copy generated CSS directly to your clipboard. Ready to paste.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <FAQ />
 
                 {/* Why Typography Matters Section */}
                 <section className="typography-matters-section">
@@ -232,7 +173,7 @@ const Home = () => {
                                 </p>
 
                                 <div className="code-example">
-                                    <code>/* Traditional approach */</code>
+                                    <code>Traditional approach</code>
                                     <pre>{`h1 {
   font-size: 1.5rem;
 }
@@ -249,7 +190,7 @@ const Home = () => {
   }
 }`}</pre>
 
-                                    <code>/* With clamp() */</code>
+                                    <code>With clamp()</code>
                                     <pre>{`h1 {
   font-size: clamp(1.5rem, 1rem + 2vw, 2.5rem);
 }`}</pre>

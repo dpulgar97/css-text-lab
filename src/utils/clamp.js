@@ -1,5 +1,3 @@
-// src/utils/clamp.js
-
 export const FONT_UNITS = [
   { value: "px", label: "px" },
   { value: "rem", label: "rem" },
