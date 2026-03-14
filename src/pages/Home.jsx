@@ -1,5 +1,6 @@
 // src/pages/Home.jsx
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import Island from '../features/typograghy-tool/Island';
 import Navbar from '../components/layout/Navbar';
@@ -8,26 +9,55 @@ import FAQ from '../components/FAQ';
 import './Home.css';
 
 const Home = () => {
+    const { t, i18n } = useTranslation();
+
+    // Función helper para renderizar HTML en traducciones (como <highlight>)
+    const renderHTML = (text) => ({ __html: text });
+
+    // Meta tags dinámicos según idioma (solo título y descripción)
+    const getMetaTitle = () => {
+        const baseTitle = "CSS Clamp Generator & Unit Converter | Typography Tool";
+        if (i18n.language === 'es') return "Generador CSS Clamp y Conversor de Unidades | Typography Tool";
+        if (i18n.language === 'pt') return "Gerador CSS Clamp e Conversor de Unidades | Typography Tool";
+        return baseTitle;
+    };
+
+    const getMetaDescription = () => {
+        if (i18n.language === 'es') return "Generador gratuito de CSS clamp() y conversor de unidades para desarrolladores. Genera valores de font-size responsivos al instante con vista previa en vivo.";
+        if (i18n.language === 'pt') return "Gerador gratuito de CSS clamp() e conversor de unidades para desenvolvedores. Gere valores de font-size responsivos instantaneamente com visualização ao vivo.";
+        return "Free CSS clamp() generator and unit converter for developers. Generate responsive font-size values instantly with live preview. Support for px, rem, em, vh, vw.";
+    };
+
     return (
         <>
-            {/* SEO Meta Tags */}
             <Helmet>
-                <title>CSS Clamp Generator & Unit Converter | Typography Tool</title>
-                <meta
-                    name="description"
-                    content="Free CSS clamp() generator and unit converter for developers. Generate responsive font-size values instantly with live preview. Support for px, rem, em, vh, vw."
-                />
+                {/* Título y descripción dinámicos según idioma */}
+                <title>{getMetaTitle()}</title>
+                <meta name="description" content={getMetaDescription()} />
+
+                {/* Keywords en inglés (base para SEO) */}
                 <meta
                     name="keywords"
                     content="css clamp, font size converter, responsive typography, rem to px, css units, clamp generator, fluid typography"
                 />
+
+                {/* Canonical URL (siempre en inglés como versión principal) */}
                 <link rel="canonical" href="https://tusioweb.com/" />
 
-                {/* Open Graph */}
+                {/* Hreflang para multi-idioma (IMPORTANTE para SEO) */}
+                <link rel="alternate" hrefLang="en" href="https://tusioweb.com/" />
+                <link rel="alternate" hrefLang="es" href="https://tusioweb.com/es/" />
+                <link rel="alternate" hrefLang="pt" href="https://tusioweb.com/pt/" />
+                <link rel="alternate" hrefLang="x-default" href="https://tusioweb.com/" />
+
+                {/* Open Graph (en inglés como fallback global) */}
                 <meta property="og:title" content="CSS Clamp Generator & Unit Converter" />
                 <meta property="og:description" content="Generate responsive font-size clamp() values instantly. Free typography tool for developers." />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://tusioweb.com/" />
+                <meta property="og:locale" content="en_US" />
+                <meta property="og:locale:alternate" content="es_ES" />
+                <meta property="og:locale:alternate" content="pt_BR" />
 
                 {/* Twitter Card */}
                 <meta name="twitter:card" content="summary_large_image" />
@@ -38,21 +68,20 @@ const Home = () => {
             <Navbar />
 
             <main className="home-page">
-                {/* Hero Section - La Herramienta */}
+                {/* Hero Section */}
                 <section className="hero-section">
                     <div className="container">
                         <div className="hero-content">
-                            <h1 className="hero-title">
-                                Responsive Typography,<br />
-                                <span className="highlight">Simplified</span>
-                            </h1>
-                            <p className="hero-subtitle">
-                                Generate CSS clamp() values, convert units, and preview your typography
-                                in real-time. Free tool for developers who care about responsive design.
-                            </p>
+                            {/* Título con HTML (highlight) */}
+                            <h1
+                                className="hero-title"
+                                dangerouslySetInnerHTML={renderHTML(t('home.heroTitle'))}
+                            />
+                            {/* Subtítulo traducido */}
+                            <p className="hero-subtitle">{t('home.heroSubtitle')}</p>
                         </div>
 
-                        {/* La Herramienta */}
+                        {/* La Herramienta (NO se traduce, se mantiene en inglés) */}
                         <div className="tool-wrapper">
                             <Island />
                         </div>
@@ -63,14 +92,12 @@ const Home = () => {
                 <section className="how-it-works-section">
                     <div className="container">
                         <div className="section-header">
-                            <h2 className="section-title">How It Works</h2>
-                            <p className="section-subtitle">
-                                Three powerful tools in one place. Here's how to get the most out of them.
-                            </p>
+                            <h2 className="section-title">{t('home.howItWorks')}</h2>
+                            <p className="section-subtitle">{t('home.howItWorksSubtitle')}</p>
                         </div>
 
                         <div className="steps-grid">
-                            {/* Step 1: Unit Converter */}
+                            {/* Step 1 */}
                             <div className="step-card">
                                 <div className="step-number">01</div>
                                 <div className="step-icon">
@@ -80,11 +107,8 @@ const Home = () => {
                                         <path d="M17 7l4 4-4 4" />
                                     </svg>
                                 </div>
-                                <h3 className="step-title">Unit Converter</h3>
-                                <p className="step-description">
-                                    Convert between px, rem, em, pt, vh, and vw instantly. Set your base font size
-                                    for accurate rem/em calculations. Perfect for translating design specs to code.
-                                </p>
+                                <h3 className="step-title">{t('home.step1Title')}</h3>
+                                <p className="step-description">{t('home.step1Desc')}</p>
                                 <ul className="step-features">
                                     <li>✓ Support for 6 CSS units</li>
                                     <li>✓ Custom base font size (8-100px)</li>
@@ -93,7 +117,7 @@ const Home = () => {
                                 </ul>
                             </div>
 
-                            {/* Step 2: Clamp Generator */}
+                            {/* Step 2 */}
                             <div className="step-card">
                                 <div className="step-number">02</div>
                                 <div className="step-icon">
@@ -101,11 +125,8 @@ const Home = () => {
                                         <path d="M4 6h16M4 12h16M4 18h16" />
                                     </svg>
                                 </div>
-                                <h3 className="step-title">Clamp Generator</h3>
-                                <p className="step-description">
-                                    Generate fluid typography with CSS clamp(). Define your viewport range and
-                                    font sizes, get the perfect formula for responsive text that scales smoothly.
-                                </p>
+                                <h3 className="step-title">{t('home.step2Title')}</h3>
+                                <p className="step-description">{t('home.step2Desc')}</p>
                                 <ul className="step-features">
                                     <li>✓ Min/Max viewport settings</li>
                                     <li>✓ Min/Max font size with unit selector</li>
@@ -114,7 +135,7 @@ const Home = () => {
                                 </ul>
                             </div>
 
-                            {/* Step 3: Live Preview */}
+                            {/* Step 3 */}
                             <div className="step-card">
                                 <div className="step-number">03</div>
                                 <div className="step-icon">
@@ -123,11 +144,8 @@ const Home = () => {
                                         <circle cx="12" cy="12" r="3" />
                                     </svg>
                                 </div>
-                                <h3 className="step-title">Live Preview</h3>
-                                <p className="step-description">
-                                    See your typography in action with real Google Fonts. Test how your clamp()
-                                    values behave across different screen sizes before implementing in your project.
-                                </p>
+                                <h3 className="step-title">{t('home.step3Title')}</h3>
+                                <p className="step-description">{t('home.step3Desc')}</p>
                                 <ul className="step-features">
                                     <li>✓ 6 popular Google Fonts</li>
                                     <li>✓ Real-time font-size rendering</li>
@@ -139,13 +157,14 @@ const Home = () => {
                     </div>
                 </section>
 
+                {/* FAQ Section */}
                 <FAQ />
 
                 {/* Why Typography Matters Section */}
                 <section className="typography-matters-section">
                     <div className="container">
                         <div className="content-block">
-                            <h2 className="section-title">Why Responsive Typography Matters</h2>
+                            <h2 className="section-title">{t('home.typographyMattersTitle')}</h2>
 
                             <div className="content-body">
                                 <p>
@@ -198,7 +217,7 @@ const Home = () => {
 
                                 <h3>Accessibility Considerations</h3>
                                 <p>
-                                    Responsive typography isn't just about aesthetics—it's about accessibility. Users with
+                                    Responsive typography isn't just about aesthetics, it's about accessibility. Users with
                                     visual impairments may zoom their browsers or use custom font sizes. Using relative units
                                     like rem and ensuring your clamp() values have reasonable minimums helps ensure your
                                     content remains readable for everyone.
@@ -212,12 +231,10 @@ const Home = () => {
                 <section className="blog-teaser-section">
                     <div className="container">
                         <div className="teaser-content">
-                            <h2 className="section-title">Learn More About Typography</h2>
-                            <p className="section-subtitle">
-                                Dive deeper into responsive design best practices with our guides.
-                            </p>
+                            <h2 className="section-title">{t('home.blogTeaserTitle')}</h2>
+                            <p className="section-subtitle">{t('home.blogTeaserSubtitle')}</p>
                             <a href="/blog" className="btn-primary">
-                                Visit Blog →
+                                {t('home.visitBlog')} →
                             </a>
                         </div>
                     </div>

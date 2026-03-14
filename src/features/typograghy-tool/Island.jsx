@@ -3,15 +3,16 @@ import React, { useState, useCallback } from 'react';
 import UnitConverter from './UnitConverter';
 import ClampGenerator from './ClampGenerator';
 import ViewportPreview from './ViewportPreview';
+import { useTranslation } from 'react-i18next';
 
 import './Island.css';
 
 const Island = () => {
-  // Estado compartido para el clamp generado
   const [generatedClamp, setGeneratedClamp] = useState('');
   const [fontUnit, setFontUnit] = useState('rem');
+  const {t} = useTranslation();
 
-  // Callback que recibe ClampGenerator
+
   const handleClampChange = useCallback((clamp, unit) => {
     setGeneratedClamp(clamp);
     setFontUnit(unit);
@@ -19,28 +20,25 @@ const Island = () => {
 
   return (
     <div className="island-container">
-      <header className="island-header">
-        <h1 className="island-title">Typography Tool</h1>
+       <header className="island-header">
+        <h1 className="island-title">{t('tool.island.title')}</h1>
         <p className="island-subtitle">
-          Convert units, generate clamp() and preview in real-time
+          {t('tool.island.subtitle')}
         </p>
       </header>
 
       <div className="island-body">
 
-        {/* Sección de Controles */}
         <section className="island-controls">
           <div className="control-section">
             <UnitConverter />
           </div>
 
           <div className="control-section">
-            {/* Pasamos el callback al generador */}
             <ClampGenerator onClampChange={handleClampChange} />
           </div>
         </section>
 
-        {/* Sección de Preview (recibe los valores) */}
         <section className="island-preview">
           <ViewportPreview
             clampValue={generatedClamp}

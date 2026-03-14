@@ -1,0 +1,105 @@
+{
+  "nav": {
+    "tool": "Ferramenta",
+    "blog": "Blog",
+    "about": "Sobre",
+    "contact": "Contato"
+  },
+  "home": {
+    "heroTitle": "Tipografia Responsiva, <highlight>Simplificada</highlight>",
+    "heroSubtitle": "Gere valores CSS clamp(), converta unidades e visualize sua tipografia em tempo real. Ferramenta gratuita para desenvolvedores.",
+    "howItWorks": "Como Funciona",
+    "howItWorksSubtitle": "Três ferramentas poderosas em um só lugar. Veja como aproveitar ao máximo.",
+    "step1Title": "Conversor de Unidades",
+    "step1Desc": "Converta entre px, rem, em, pt, vh e vw instantaneamente. Configure seu tamanho base para cálculos precisos.",
+    "step2Title": "Gerador de Clamp",
+    "step2Desc": "Gere tipografia fluida com CSS clamp(). Defina seu intervalo de viewport e tamanhos de fonte.",
+    "step3Title": "Visualização Ao Vivo",
+    "step3Desc": "Veja sua tipografia em ação com Google Fonts reais. Teste como seus valores clamp() se comportam.",
+    "faqTitle": "Perguntas Frequentes",
+    "faqSubtitle": "Tudo o que você precisa saber sobre CSS clamp() e tipografia responsiva.",
+    "typographyMattersTitle": "Por Que a Tipografia Responsiva Importa",
+    "blogTeaserTitle": "Saiba Mais Sobre Tipografia",
+    "blogTeaserSubtitle": "Aprofunde-se nas melhores práticas de design responsivo com nossos guias.",
+    "visitBlog": "Visitar Blog"
+  },
+  "footer": {
+    "privacy": "Política de Privacidade",
+    "terms": "Termos de Serviço",
+    "contact": "Contato",
+    "copyright": "Feito para desenvolvedores."
+  },
+  "contact": {
+    "title": "Fale Conosco",
+    "subtitle": "Tem uma pergunta, encontrou um bug ou quer sugerir um recurso? Adoraríamos ouvir você.",
+    "emailTitle": "Email",
+    "emailDesc": "A maneira mais rápida de nos contactar. Respondemos em 1-2 dias úteis.",
+    "whatToInclude": "O Que Incluir na Sua Mensagem",
+    "bugReports": "Relatos de bugs: Passos para reproduzir, navegador/versão e capturas se possível",
+    "featureRequests": "Solicitações de recursos: Descreva o problema que está tentando resolver",
+    "generalQuestions": "Perguntas gerais: Seja o mais específico possível",
+    "beforeYouWrite": "Antes de Escrever",
+    "checkFAQ": "Verifique nossa seção de Perguntas Frequentes. Sua pergunta pode já estar respondida!"
+  },
+  "privacy": {
+    "title": "Política de Privacidade",
+    "section1Title": "1. Introdução",
+    "section2Title": "2. Informações Que Coletamos",
+    "section3Title": "3. Serviços de Terceiros",
+    "section4Title": "4. Como Usamos Suas Informações",
+    "section5Title": "5. Retenção de Dados",
+    "section6Title": "6. Seus Direitos (Conformidade GDPR)",
+    "section7Title": "7. Privacidade Infantil",
+    "section8Title": "8. Alterações Nesta Política",
+    "section9Title": "9. Fale Conosco"
+  },
+  "common": {
+    "loading": "Carregando...",
+    "error": "Erro",
+    "copy": "Copiar",
+    "copied": "Copiado!",
+    "save": "Salvar",
+    "edit": "Editar",
+    "cancel": "Cancelar"
+  },
+  "tool": {
+    "island": {
+      "title": "Ferramenta de Tipografia",
+      "subtitle": "Converta unidades, gere clamp() e visualize em tempo real"
+    },
+  "unitConverter": {
+    "title": "Conversor de Unidades",
+    "value": "Valor",
+    "from": "De",
+    "to": "Para",
+    "baseFontSize": "Tamanho Base (px)",
+    "baseFontSizeHint": "Usado para cálculos rem/em (8-100px)",
+    "edit": "Editar",
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "result": "Resultado",
+    "copy": "Copiar",
+    "copied": "Copiado!",
+    "formula": "{{value}} {{from}} = {{result}} {{to}}"
+  },
+  "clampGenerator": {
+    "title": "Gerador de Clamp",
+    "viewportMin": "Viewport Mínimo",
+    "viewportMax": "Viewport Máximo",
+    "fontSizeMin": "Tamanho Mínimo",
+    "fontSizeMax": "Tamanho Máximo",
+    "unit": "Unidade",
+    "cssOutput": "CSS Gerado",
+    "copy": "Copiar",
+    "copied": "Copiado!",
+    "min": "Mín",
+    "ideal": "Ideal",
+    "max": "Máx"
+  },
+  "viewportPreview": {
+    "title": "Visualização Ao Vivo",
+    "font": "Família da Fonte",
+    "note": "Nota: A unidade <code>vw</code> é relativa ao viewport do seu navegador. Para testes responsivos precisos, use esta visualização para verificar a aparência tipográfica, e o Chrome DevTools para testar diferentes tamanhos de tela."
+  }
+}
+}

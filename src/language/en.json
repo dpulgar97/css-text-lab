@@ -1,0 +1,107 @@
+{
+  "nav": {
+    "tool": "Tool",
+    "blog": "Blog",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "home": {
+    "heroTitle": "Responsive Typography, <highlight>Simplified</highlight>",
+    "heroSubtitle": "Generate CSS clamp() values, convert units, and preview your typography in real-time. Free tool for developers who care about responsive design.",
+    "howItWorks": "How It Works",
+    "howItWorksSubtitle": "Three powerful tools in one place. Here's how to get the most out of them.",
+    "step1Title": "Unit Converter",
+    "step1Desc": "Convert between px, rem, em, pt, vh, and vw instantly. Set your base font size for accurate rem/em calculations.",
+    "step2Title": "Clamp Generator",
+    "step2Desc": "Generate fluid typography with CSS clamp(). Define your viewport range and font sizes, get the perfect formula.",
+    "step3Title": "Live Preview",
+    "step3Desc": "See your typography in action with real Google Fonts. Test how your clamp() values behave across different screen sizes.",
+    "faqTitle": "Frequently Asked Questions",
+    "faqSubtitle": "Everything you need to know about CSS clamp() and responsive typography.",
+    "typographyMattersTitle": "Why Responsive Typography Matters",
+    "blogTeaserTitle": "Learn More About Typography",
+    "blogTeaserSubtitle": "Dive deeper into responsive design best practices with our guides.",
+    "visitBlog": "Visit Blog"
+  },
+  "footer": {
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "contact": "Contact",
+    "copyright": "Built for developers."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Have a question, found a bug, or want to suggest a feature? We'd love to hear from you.",
+    "emailTitle": "Email",
+    "emailDesc": "The fastest way to reach us. We typically respond within 1-2 business days.",
+    "whatToInclude": "What to Include in Your Message",
+    "bugReports": "Bug reports: Steps to reproduce, browser/version, and screenshots if possible",
+    "featureRequests": "Feature requests: Describe the problem you're trying to solve",
+    "generalQuestions": "General questions: Be as specific as you can about what you need",
+    "beforeYouWrite": "Before You Write",
+    "checkFAQ": "Check our Frequently Asked Questions section. Your question might already be answered there!"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "section1Title": "1. Introduction",
+    "section2Title": "2. Information We Collect",
+    "section3Title": "3. Third-Party Services",
+    "section4Title": "4. How We Use Your Information",
+    "section5Title": "5. Data Retention",
+    "section6Title": "6. Your Rights (GDPR Compliance)",
+    "section7Title": "7. Children's Privacy",
+    "section8Title": "8. Changes to This Privacy Policy",
+    "section9Title": "9. Contact Us"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "save": "Save",
+    "edit": "Edit",
+    "cancel": "Cancel"
+  },
+
+  "tool": {
+    "island": {
+      "title": "Typography Tool",
+      "subtitle": "Convert units, generate clamp(), and preview in real-time"
+    },
+  "unitConverter": {
+    "title": "Unit Converter",
+    "value": "Value",
+    "from": "From",
+    "to": "To",
+    "baseFontSize": "Base Font Size (px)",
+    "baseFontSizeHint": "Used for rem/em calculations (8-100px)",
+    "edit": "Edit",
+    "save": "Save",
+    "cancel": "Cancel",
+    "result": "Result",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "formula": "{{value}} {{from}} = {{result}} {{to}}"
+  },
+  "clampGenerator": {
+    "title": "Clamp Generator",
+    "viewportMin": "Viewport Min",
+    "viewportMax": "Viewport Max",
+    "fontSizeMin": "Font Size Min",
+    "fontSizeMax": "Font Size Max",
+    "unit": "Unit",
+    "cssOutput": "CSS Output",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "min": "Min",
+    "ideal": "Ideal",
+    "max": "Max"
+  },
+  "viewportPreview": {
+    "title": "Live Preview",
+    "font": "Font Family",
+    "note": "Note: The <code>vw</code> unit is relative to your browser viewport. For accurate responsive testing, use this preview to check typography appearance, and Chrome DevTools to test different screen sizes."
+  }
+}
+}
+

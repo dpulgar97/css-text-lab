@@ -1,9 +1,11 @@
 // src/features/typography-tool/ClampGenerator.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useClamp } from '../../hooks/useClamp';
 import './ClampGenerator.css';
 
 const ClampGenerator = ({ onClampChange }) => {
+    const { t } = useTranslation();
     const {
         viewportMin,
         viewportMax,
@@ -21,13 +23,14 @@ const ClampGenerator = ({ onClampChange }) => {
         handleFontUnitChange,
     } = useClamp();
 
-    React.useEffect(() => {
+    const [isCopied, setIsCopied] = useState(false);
+
+    // Notificar al padre cuando cambia el clamp generado
+    useEffect(() => {
         if (clampResult?.full && onClampChange) {
             onClampChange(clampResult.full, fontUnit);
         }
     }, [clampResult, fontUnit, onClampChange]);
-
-    const [isCopied, setIsCopied] = useState(false);
 
     const handleCopy = async () => {
         if (!clampResult) return;
@@ -43,12 +46,16 @@ const ClampGenerator = ({ onClampChange }) => {
 
     return (
         <div className="clamp-generator">
-            <h2 className="generator-title">Clamp Generator</h2>
+            {/* Título - TRADUCIDO */}
+            <h2 className="generator-title">{t('tool.clampGenerator.title')}</h2>
 
             {/* Fila 1: Viewport */}
             <div className="clamp-row">
                 <div className="input-group-with-unit">
-                    <label htmlFor="viewportMin" className="input-label">Viewport Min</label>
+                    {/* Label "Viewport Min" - TRADUCIDO */}
+                    <label htmlFor="viewportMin" className="input-label">
+                        {t('tool.clampGenerator.viewportMin')}
+                    </label>
                     <div className="input-with-unit">
                         <input
                             type="number"
@@ -60,12 +67,16 @@ const ClampGenerator = ({ onClampChange }) => {
                             step="10"
                             lang="en-US"
                         />
+                        {/* La unidad (px) NO se traduce */}
                         <span className="input-unit">{viewportUnit}</span>
                     </div>
                 </div>
 
                 <div className="input-group-with-unit">
-                    <label htmlFor="viewportMax" className="input-label">Viewport Max</label>
+                    {/* Label "Viewport Max" - TRADUCIDO */}
+                    <label htmlFor="viewportMax" className="input-label">
+                        {t('tool.clampGenerator.viewportMax')}
+                    </label>
                     <div className="input-with-unit">
                         <input
                             type="number"
@@ -85,7 +96,10 @@ const ClampGenerator = ({ onClampChange }) => {
             {/* Fila 2: Font Size */}
             <div className="clamp-row">
                 <div className="input-group-with-unit">
-                    <label htmlFor="fontSizeMin" className="input-label">Font Size Min</label>
+                    {/* Label "Font Size Min" - TRADUCIDO */}
+                    <label htmlFor="fontSizeMin" className="input-label">
+                        {t('tool.clampGenerator.fontSizeMin')}
+                    </label>
                     <div className="input-with-unit">
                         <input
                             type="text"
@@ -97,11 +111,12 @@ const ClampGenerator = ({ onClampChange }) => {
                             lang="en-US"
                             placeholder="0"
                         />
+                        {/* Selector de unidad - El label "Unit" se traduce, las opciones (px, rem) NO */}
                         <select
                             value={fontUnit}
                             onChange={handleFontUnitChange}
                             className="unit-select"
-                            lang="en-US"
+                            aria-label={t('tool.clampGenerator.unit')}
                         >
                             {fontUnits.map((unit) => (
                                 <option key={unit.value} value={unit.value}>
@@ -113,7 +128,10 @@ const ClampGenerator = ({ onClampChange }) => {
                 </div>
 
                 <div className="input-group-with-unit">
-                    <label htmlFor="fontSizeMax" className="input-label">Font Size Max</label>
+                    {/* Label "Font Size Max" - TRADUCIDO */}
+                    <label htmlFor="fontSizeMax" className="input-label">
+                        {t('tool.clampGenerator.fontSizeMax')}
+                    </label>
                     <div className="input-with-unit">
                         <input
                             type="text"
@@ -129,7 +147,7 @@ const ClampGenerator = ({ onClampChange }) => {
                             value={fontUnit}
                             onChange={handleFontUnitChange}
                             className="unit-select"
-                            lang="en-US"
+                            aria-label={t('tool.clampGenerator.unit')}
                         >
                             {fontUnits.map((unit) => (
                                 <option key={unit.value} value={unit.value}>
@@ -141,30 +159,35 @@ const ClampGenerator = ({ onClampChange }) => {
                 </div>
             </div>
 
-            {/* Error Message */}
+            {/* Mensaje de Error - TRADUCIDO (si agregas la key al JSON) */}
             {error && (
                 <div className="clamp-error">
+                    <span className="error-icon">⚠️</span>
                     <span className="error-message">{error}</span>
                 </div>
             )}
 
-            {/* Output */}
+            {/* Output - Solo se muestra si hay resultado */}
             {clampResult && (
                 <div className="clamp-output">
                     <div className="output-header">
-                        <span className="output-label">CSS Output</span>
+                        {/* Label "CSS Output" - TRADUCIDO */}
+                        <span className="output-label">{t('tool.clampGenerator.cssOutput')}</span>
+
+                        {/* Botón Copy - TRADUCIDO con estado */}
                         <button
                             type="button"
                             onClick={handleCopy}
                             className={`copy-btn ${isCopied ? 'copied' : ''}`}
-                            aria-label="Copy CSS to clipboard"
+                            aria-label={t('tool.clampGenerator.copy')}
+                            title={t('tool.clampGenerator.copy')}
                         >
                             {isCopied ? (
                                 <>
                                     <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                         <path d="M5 13l4 4L19 7" />
                                     </svg>
-                                    <span>Copied!</span>
+                                    <span>{t('tool.clampGenerator.copied')}</span>
                                 </>
                             ) : (
                                 <>
@@ -172,21 +195,25 @@ const ClampGenerator = ({ onClampChange }) => {
                                         <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
                                         <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
                                     </svg>
-                                    <span>Copy</span>
+                                    <span>{t('tool.clampGenerator.copy')}</span>
                                 </>
                             )}
                         </button>
                     </div>
+
+                    {/* El código CSS generado NO se traduce (es código) */}
                     <code className="output-code">font-size: {clampResult.full};</code>
+
+                    {/* Breakdown - Los labels "Min", "Ideal", "Max" se traducen, los valores NO */}
                     <div className="output-breakdown">
                         <span className="breakdown-item">
-                            <strong>Min:</strong> {clampResult.min}
+                            <strong>{t('tool.clampGenerator.min')}:</strong> {clampResult.min}
                         </span>
                         <span className="breakdown-item">
-                            <strong>Ideal:</strong> {clampResult.ideal}
+                            <strong>{t('tool.clampGenerator.ideal')}:</strong> {clampResult.ideal}
                         </span>
                         <span className="breakdown-item">
-                            <strong>Max:</strong> {clampResult.max}
+                            <strong>{t('tool.clampGenerator.max')}:</strong> {clampResult.max}
                         </span>
                     </div>
                 </div>

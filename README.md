@@ -1,1 +1,1 @@
-### Description of the CSS TEXT TOOL###
+### Description of the CSS TEXT TOOL

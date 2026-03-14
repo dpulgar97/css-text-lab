@@ -1,9 +1,11 @@
 // src/features/typography-tool/ViewportPreview.jsx
 import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useViewportPreview } from '../../hooks/useViewportPreview';
 import './ViewportPreview.css';
 
 const ViewportPreview = ({ clampValue, fontUnit }) => {
+    const { t } = useTranslation();
     const {
         selectedFont,
         clampValue: currentClamp,
@@ -13,14 +15,14 @@ const ViewportPreview = ({ clampValue, fontUnit }) => {
         updateClamp,
     } = useViewportPreview(clampValue);
 
-    // Actualizar cuando cambie la prop
+    // Actualizar el clamp cuando cambie la prop
     useEffect(() => {
         if (clampValue) {
             updateClamp(clampValue);
         }
     }, [clampValue, updateClamp]);
 
-    // Texto de prueba más realista
+    // Texto de prueba (se mantiene en inglés para consistencia)
     const previewText = "The quick brown fox jumps over the lazy dog. 0123456789";
     const previewParagraph = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
@@ -28,10 +30,15 @@ const ViewportPreview = ({ clampValue, fontUnit }) => {
         <div className="viewport-preview">
             {/* Header con controles */}
             <div className="preview-header">
-                <h2 className="preview-title">Live Preview</h2>
+                {/* Título - TRADUCIDO */}
+                <h2 className="preview-title">{t('tool.viewportPreview.title')}</h2>
 
+                {/* Selector de fuente */}
                 <div className="font-selector">
-                    <label htmlFor="fontSelect" className="input-label">Font Family</label>
+                    {/* Label "Font Family" - TRADUCIDO */}
+                    <label htmlFor="fontSelect" className="input-label">
+                        {t('tool.viewportPreview.font')}
+                    </label>
                     <select
                         id="fontSelect"
                         value={selectedFont}
@@ -40,6 +47,7 @@ const ViewportPreview = ({ clampValue, fontUnit }) => {
                     >
                         {fonts.map((font) => (
                             <option key={font.value} value={font.value}>
+                                {/* Los nombres de fuentes NO se traducen (Inter, Roboto, etc.) */}
                                 {font.label}
                             </option>
                         ))}
@@ -50,7 +58,7 @@ const ViewportPreview = ({ clampValue, fontUnit }) => {
             {/* Área de preview */}
             <div className="preview-area">
                 <div className="preview-content">
-                    {/* Heading con el clamp aplicado */}
+                    {/* Heading con el clamp aplicado (el estilo viene del hook) */}
                     <h1 className="preview-heading" style={previewStyle}>
                         {previewText}
                     </h1>
@@ -62,12 +70,13 @@ const ViewportPreview = ({ clampValue, fontUnit }) => {
                 </div>
             </div>
 
-            {/* Nota para desarrolladores */}
+            {/* Nota informativa - TRADUCIDA con HTML para el <code> */}
             <div className="preview-note">
-                <span className="note-text">
-                    <strong>Note:</strong> The <code>vw</code> unit is relative to your browser viewport.
-                    Inspect this element to see the clamp() applied. Test in your own project for accurate responsive behavior.
-                </span>
+                <span className="note-icon">ℹ️</span>
+                <span
+                    className="note-text"
+                    dangerouslySetInnerHTML={{ __html: t('tool.viewportPreview.note') }}
+                />
             </div>
         </div>
     );

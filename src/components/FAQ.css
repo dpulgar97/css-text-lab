@@ -42,10 +42,6 @@
   transition: background-color 0.2s ease;
 }
 
-.faq-question:hover {
-  background-color: var(--bg-input);
-}
-
 .question-text {
   flex: 1;
   font-size: 1rem;

@@ -1,10 +1,11 @@
 // src/features/typography-tool/UnitConverter.jsx
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useConverter } from '../../hooks/useConverter';
 import './UnitConverter.css';
 
-
 const UnitConverter = () => {
+  const { t } = useTranslation();
   const {
     inputValue,
     fromUnit,
@@ -29,8 +30,8 @@ const UnitConverter = () => {
     hideToast,
   } = useConverter();
 
-  // ... (estado isCopied y handleCopyResult igual)
   const [isCopied, setIsCopied] = useState(false);
+
   const handleCopyResult = async () => {
     const textToCopy = `${result} ${toUnit}`;
     try {
@@ -58,26 +59,29 @@ const UnitConverter = () => {
         </div>
       )}
 
-      <h2 className="converter-title">Unit Converter</h2>
-      
+      {/* Título - TRADUCIDO */}
+      <h2 className="converter-title">{t('tool.unitConverter.title')}</h2>
+
       {/* Fila de entrada y unidades */}
-      <div className="converter-row-first">
-        {/* ... (inputs de Value, From, To iguales) ... */}
+      <div className="converter-row">
         <div className="input-group">
-          <label htmlFor="inputValue" className="input-label">Value</label>
+          {/* Label "Value" - TRADUCIDO */}
+          <label htmlFor="inputValue" className="input-label">{t('tool.unitConverter.value')}</label>
           <input
-            type="number"
+            type="text"
             id="inputValue"
             value={inputValue}
             onChange={handleInputChange}
             className="input-field"
-            min="0"
-            step="0.1"
+            inputMode="decimal"
+            lang="en-US"
+            placeholder="0"
           />
         </div>
 
         <div className="input-group">
-          <label htmlFor="fromUnit" className="input-label">From</label>
+          {/* Label "From" - TRADUCIDO */}
+          <label htmlFor="fromUnit" className="input-label">{t('tool.unitConverter.from')}</label>
           <select
             id="fromUnit"
             value={fromUnit}
@@ -86,16 +90,19 @@ const UnitConverter = () => {
           >
             {units.map((unit) => (
               <option key={unit.value} value={unit.value}>
+                {/* Las unidades (px, rem, em) NO se traducen */}
                 {unit.label}
               </option>
             ))}
           </select>
         </div>
 
+        {/* Arrow (símbolo visual, no necesita traducción) */}
         <div className="converter-arrow">→</div>
 
         <div className="input-group">
-          <label htmlFor="toUnit" className="input-label">To</label>
+          {/* Label "To" - TRADUCIDO */}
+          <label htmlFor="toUnit" className="input-label">{t('tool.unitConverter.to')}</label>
           <select
             id="toUnit"
             value={toUnit}
@@ -111,7 +118,7 @@ const UnitConverter = () => {
         </div>
       </div>
 
-      {/* Input condicional de Viewport (NUEVO) */}
+      {/* Input condicional de Viewport */}
       {needsViewportInput && (
         <div className="converter-row">
           <div className="input-group full-width">
@@ -127,41 +134,44 @@ const UnitConverter = () => {
               className="input-field"
               min="100"
               step="10"
+              lang="en-US"
             />
           </div>
         </div>
       )}
 
       {/* Base font size con toggle */}
-      {/* ... (igual que antes) ... */}
       <div className="converter-row">
         <div className="input-group full-width">
           <div className="base-font-header">
             <label className="input-label">
-              Base Font Size (px)
-              <span className="input-hint">Used for rem/em calculations (8-100px)</span>
+              {/* "Base Font Size (px)" - TRADUCIDO */}
+              {t('tool.unitConverter.baseFontSize')}
+              {/* Hint - TRADUCIDO */}
+              <span className="input-hint">{t('tool.unitConverter.baseFontSizeHint')}</span>
             </label>
-            
+
+            {/* Botón toggle - TRADUCIDO */}
             <button
               type="button"
               onClick={toggleBaseFontSizeEdit}
               className={`toggle-btn ${isBaseFontSizeEditable ? 'active' : ''}`}
-              aria-label={isBaseFontSizeEditable ? 'Save base font size' : 'Edit base font size'}
+              aria-label={isBaseFontSizeEditable ? t('tool.unitConverter.save') : t('tool.unitConverter.edit')}
             >
               {isBaseFontSizeEditable ? (
                 <>
                   <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 13l4 4L19 7"/>
+                    <path d="M5 13l4 4L19 7" />
                   </svg>
-                  <span>Save</span>
+                  <span>{t('tool.unitConverter.save')}</span>
                 </>
               ) : (
                 <>
                   <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/>
-                    <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                    <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
+                    <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
                   </svg>
-                  <span>Edit</span>
+                  <span>{t('tool.unitConverter.edit')}</span>
                 </>
               )}
             </button>
@@ -177,57 +187,70 @@ const UnitConverter = () => {
                 className="input-field editable"
                 autoFocus
                 placeholder="Enter value..."
+                inputMode="decimal"
+                lang="en-US"
               />
+              {/* Botón Cancel - TRADUCIDO */}
               <button
                 type="button"
                 onClick={cancelBaseFontSizeEdit}
                 className="cancel-btn"
               >
-                Cancel
+                {t('tool.unitConverter.cancel')}
               </button>
             </div>
           ) : (
             <div className="base-font-display">
+              {/* El valor numérico (16px) NO se traduce */}
               <span className="display-value">{baseFontSize}px</span>
-              <span className="display-hint">Click "Edit" to change (8-100px)</span>
+              {/* Hint - TRADUCIDO */}
+              <span className="display-hint">{t('tool.unitConverter.baseFontSizeHint')}</span>
             </div>
           )}
         </div>
       </div>
 
       {/* Resultado con botón de copiar */}
-      {/* ... (igual que antes) ... */}
       <div className="converter-result">
         <div className="result-header">
-          <span className="result-label">Result:</span>
+          {/* "Result:" - TRADUCIDO */}
+          <span className="result-label">{t('tool.unitConverter.result')}:</span>
+          {/* Botón Copy - TRADUCIDO con estado */}
           <button
             type="button"
             onClick={handleCopyResult}
             className={`copy-btn ${isCopied ? 'copied' : ''}`}
-            aria-label="Copy result to clipboard"
-            title="Copy to clipboard"
+            aria-label={t('tool.unitConverter.copy')}
+            title={t('tool.unitConverter.copy')}
           >
             {isCopied ? (
               <>
                 <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M5 13l4 4L19 7"/>
+                  <path d="M5 13l4 4L19 7" />
                 </svg>
-                <span>Copied!</span>
+                <span>{t('tool.unitConverter.copied')}</span>
               </>
             ) : (
               <>
                 <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-                  <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
                 </svg>
-                <span>Copy</span>
+                <span>{t('tool.unitConverter.copy')}</span>
               </>
             )}
           </button>
         </div>
+        {/* El resultado numérico (1 rem) NO se traduce */}
         <span className="result-value">{result} {toUnit}</span>
+        {/* Fórmula - TRADUCIDA con interpolación de variables */}
         <span className="result-formula">
-          {inputValue} {fromUnit} = {result} {toUnit}
+          {t('tool.unitConverter.formula', {
+            value: inputValue === '' ? '0' : inputValue,
+            from: fromUnit,
+            result: result,
+            to: toUnit
+          })}
         </span>
       </div>
     </div>

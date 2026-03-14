@@ -7,23 +7,23 @@ const FAQ = () => {
   const faqs = [
     {
       question: "Is the clamp() function supported by all modern browsers?",
-      answer: "Yes, the CSS clamp() function is widely supported in all evergreen browsers (Chrome, Firefox, Safari, and Edge) since early 2020. If your project requires support for legacy browsers like Internet Explorer, we recommend providing a static font-size fallback before the clamp() declaration to ensure basic readability."
+      answer: "Yes. CSS clamp() is supported by all modern browsers (Chrome, Firefox, Safari, and Edge) since early 2020. If you need to support older browsers like Internet Explorer, we recommend adding a static font-size as a fallback before the clamp() code to ensure basic readability."
     },
     {
-      question: "Why does the tool use 3 to 5 decimal places in its output?",
-      answer: "Precision is key in responsive design. We provide up to 5 decimal places to ensure that the fluid scaling remains smooth across all screen resolutions. This prevents 'rounding jumps' in typography that can sometimes occur in high-density displays (Retina/4K) when using simpler values."
+      question: "Why does the tool use up to 5 decimal places in its output?",
+      answer: "Precision ensures your typography scales smoothly. Using multiple decimals prevents 'stuttering' or tiny jumps in font size that can happen on high-resolution screens (like 4K or Retina) when the mathematical values are rounded too early."
     },
     {
       question: "Does using rem instead of px affect WCAG accessibility compliance?",
-      answer: "Absolutely. Using rem is a best practice for accessibility because it respects the user's browser font-size settings. If a visually impaired user increases their default browser font size, your website will scale accordingly. Using fixed px values ignores these preferences, potentially making your site less accessible."
+      answer: "Absolutely. Using rem is a best practice for accessibility because it respects the user's browser settings. If a user increases their default font size, your website will scale accordingly. Using fixed px values ignores these preferences, making your site less accessible."
     },
     {
-      question: "Can I use the generated font-clamp code in utility-first frameworks like Tailwind CSS?",
-      answer: "Yes! You can easily integrate the output into your tailwind.config.js file by adding it to the extend: { fontSize: { ... } } section. Alternatively, you can use Tailwind's arbitrary value syntax, for example: text-[clamp(1rem,5vw,2.5rem)]."
+      question: "Can I use the generated code in utility-first frameworks like Tailwind CSS?",
+      answer: "Yes! You can add the output to your tailwind.config.js file under the extend: { fontSize: { ... } } section. Alternatively, you can use Tailwind's arbitrary value syntax directly in your HTML, for example: text-[clamp(1rem,5vw,2.5rem)]."
     },
     {
-      question: "How does the Dynamic Viewport simulation differ from Chrome DevTools?",
-      answer: "While DevTools is great for testing overall layout, our simulator is specifically calibrated to show you the 'clamping points' in real-time. It allows you to visualize exactly when your typography stops shrinking or growing based on your specific configuration, without having to switch between different device presets."
+     question: "What's the recommended base font size for responsive projects?",
+  answer: "The industry standard is 16px (1rem), which is the default in most browsers. This provides a good balance between readability and scalability. However, some projects may use 14px for data-dense interfaces like dashboards, or 18px for content-focused sites like blogs. The key is consistency, once you choose a base size, use it throughout your project for all rem-based calculations."
     }
   ];
 
@@ -35,7 +35,7 @@ const FAQ = () => {
     <section className="faq-section">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">Frequently Asked Questions</h2>
+          <h2 className="section-title">FAQs</h2>
           <p className="section-subtitle">
             Everything you need to know about CSS clamp() and responsive typography.
           </p>
@@ -43,11 +43,11 @@ const FAQ = () => {
 
         <div className="faq-list">
           {faqs.map((faq, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className={`faq-item ${openIndex === index ? 'open' : ''}`}
             >
-              <button 
+              <button
                 className="faq-question"
                 onClick={() => toggleFAQ(index)}
                 aria-expanded={openIndex === index}
@@ -61,8 +61,8 @@ const FAQ = () => {
                   </svg>
                 </span>
               </button>
-              
-              <div 
+
+              <div
                 id={`faq-answer-${index}`}
                 className="faq-answer"
                 role="region"

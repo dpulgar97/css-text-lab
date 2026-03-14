@@ -1,18 +1,45 @@
+// src/components/layout/Header.jsx
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import LanguageSelector from '../LanguageSelector';
 import './Navbar.css';
 
 const Header = () => {
+  const { t } = useTranslation();
+  const location = useLocation();
+
+  const isActive = (path) => location.pathname === path;
+
   return (
     <header className="site-header">
       <div className="container header-content">
-        <div className="logo">
+        <Link to="/" className="logo">
           <span className="logo-text">Typography Tool</span>
-        </div>
+        </Link>
+        
         <nav className="main-nav">
-          <a href="/" className="nav-link active">Tool</a>
-          <a href="/blog" className="nav-link">Blog</a>
-          <a href="/about" className="nav-link">About</a>
+          <Link 
+            to="/" 
+            className={`nav-link ${isActive('/') ? 'active' : ''}`}
+          >
+            {t('nav.tool')}
+          </Link>
+          <Link 
+            to="/blog" 
+            className={`nav-link ${isActive('/blog') ? 'active' : ''}`}
+          >
+            {t('nav.blog')}
+          </Link>
+          <Link 
+            to="/contact" 
+            className={`nav-link ${isActive('/contact') ? 'active' : ''}`}
+          >
+            {t('nav.contact')}
+          </Link>
         </nav>
+
+        <LanguageSelector />
       </div>
     </header>
   );
