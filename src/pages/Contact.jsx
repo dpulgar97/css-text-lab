@@ -1,11 +1,13 @@
 // src/pages/Contact.jsx
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 import Header from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import './Contact.css';
 
 const Contact = () => {
+    const { t, i18n } = useTranslation();
     const toolName = "Typography Tool";
     const websiteUrl = "https://tusioweb.com";
     const contactEmail = "tu-email@domain.com"; // ← CAMBIAR POR TU EMAIL REAL
@@ -13,8 +15,8 @@ const Contact = () => {
     return (
         <>
             <Helmet>
-                <title>Contact | {toolName}</title>
-                <meta name="description" content="Get in touch with the Typography Tool team. Report bugs, suggest features, or just say hello." />
+                <title>{t('contact.title')} | {toolName}</title>
+                <meta name="description" content={t('contact.subtitle')} />
                 <link rel="canonical" href={`${websiteUrl}/contact`} />
             </Helmet>
 
@@ -24,14 +26,10 @@ const Contact = () => {
                 <div className="container">
                     <div className="contact-content">
                         <header className="contact-header">
-                            <h1 className="contact-title">Contact Us</h1>
-                            <p className="contact-subtitle">
-                                Have a question, found a bug, or want to suggest a feature?
-                                We'd love to hear from you.
-                            </p>
+                            <h1 className="contact-title">{t('contact.title')}</h1>
+                            <p className="contact-subtitle">{t('contact.subtitle')}</p>
                         </header>
 
-                        {/* Email Contact Card */}
                         <section className="contact-card">
                             <div className="contact-method">
                                 <div className="contact-icon">
@@ -41,8 +39,8 @@ const Contact = () => {
                                     </svg>
                                 </div>
                                 <div className="contact-details">
-                                    <h3>Email</h3>
-                                    <p>The fastest way to reach us. We typically respond within 1-2 business days.</p>
+                                    <h3>{t('contact.emailTitle')}</h3>
+                                    <p>{t('contact.emailDesc')}</p>
                                     <a href={`mailto:${contactEmail}`} className="contact-link">
                                         {contactEmail}
                                     </a>
@@ -50,24 +48,19 @@ const Contact = () => {
                             </div>
                         </section>
 
-                        {/* Additional Info */}
                         <section className="contact-info">
-                            <h2>What to Include in Your Message</h2>
-                            <p>To help us assist you better, please include:</p>
+                            <h2>{t('contact.whatToInclude')}</h2>
+                            <p>{t('contact.whatToIncludeDesc')}</p>
                             <ul>
-                                <li><strong>Bug reports:</strong> Steps to reproduce, browser/version, and screenshots if possible</li>
-                                <li><strong>Feature requests:</strong> Describe the problem you're trying to solve</li>
-                                <li><strong>General questions:</strong> Be as specific as you can about what you need</li>
+                                <li><strong>{t('contact.bugReports')}</strong></li>
+                                <li><strong>{t('contact.featureRequests')}</strong></li>
+                                <li><strong>{t('contact.generalQuestions')}</strong></li>
                             </ul>
                         </section>
 
-                        {/* FAQ Teaser */}
                         <section className="contact-faq-teaser">
-                            <h2>Before You Write</h2>
-                            <p>
-                                Check our <a href="/#faq">Frequently Asked Questions</a> section.
-                                Your question might already be answered there!
-                            </p>
+                            <h2>{t('contact.beforeYouWrite')}</h2>
+                            <p dangerouslySetInnerHTML={{ __html: t('contact.checkFAQ') }} />
                         </section>
                     </div>
                 </div>

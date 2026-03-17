@@ -21,7 +21,25 @@
     "typographyMattersTitle": "Por Qué Importa la Tipografía Responsiva",
     "blogTeaserTitle": "Aprende Más Sobre Tipografía",
     "blogTeaserSubtitle": "Profundiza en las mejores prácticas de diseño responsivo con nuestras guías.",
-    "visitBlog": "Visitar Blog"
+    "visitBlog": "Visitar Blog",
+    "step1Features": [
+      "Soporte para 6 unidades CSS",
+      "Tamaño base personalizado (8-100px)",
+      "Input de viewport para vh/vw",
+      "Copiar al portapapeles con un clic"
+    ],
+    "step2Features": [
+      "Configuración de viewport mín/máx",
+      "Tamaño de fuente mín/máx con selector de unidad",
+      "Cálculo automático del valor ideal",
+      "CSS listo para usar"
+    ],
+    "step3Features": [
+      "6 fuentes populares de Google Fonts",
+      "Renderizado de font-size en tiempo real",
+      "Área de preview a ancho completo",
+      "CSS generado visible"
+    ]
   },
   "footer": {
     "privacy": "Política de Privacidad",
@@ -35,11 +53,12 @@
     "emailTitle": "Email",
     "emailDesc": "La forma más rápida de contactarnos. Respondemos en 1-2 días hábiles.",
     "whatToInclude": "Qué Incluir en Tu Mensaje",
+    "whatToIncludeDesc": "Para ayudarte mejor, por favor incluye:",
     "bugReports": "Reportes de bugs: Pasos para reproducir, navegador/versión y capturas si es posible",
     "featureRequests": "Solicitudes de funciones: Describe el problema que intentas resolver",
-    "generalQuestions": "Preguntas generales: Sé lo más específico posible",
+    "generalQuestions": "Preguntas generales: Sé lo más específico posible sobre lo que necesitas",
     "beforeYouWrite": "Antes de Escribir",
-    "checkFAQ": "Revisa nuestra sección de Preguntas Frecuentes. ¡Tu pregunta podría ya estar respondida!"
+    "checkFAQ": "Revisa nuestra sección de <a href=\"/#faq\"><b>Preguntas Frecuentes</b></a>. ¡Tu pregunta podría ya estar respondida!"
   },
   "privacy": {
     "title": "Política de Privacidad",
@@ -67,39 +86,39 @@
       "title": "Herramienta de Tipografía",
       "subtitle": "Convierte unidades, genera clamp() y previsualiza en tiempo real"
     },
-  "unitConverter": {
-    "title": "Conversor de Unidades",
-    "value": "Valor",
-    "from": "De",
-    "to": "A",
-    "baseFontSize": "Tamaño Base (px)",
-    "baseFontSizeHint": "Usado para cálculos rem/em (8-100px)",
-    "edit": "Editar",
-    "save": "Guardar",
-    "cancel": "Cancelar",
-    "result": "Resultado",
-    "copy": "Copiar",
-    "copied": "¡Copiado!",
-    "formula": "{{value}} {{from}} = {{result}} {{to}}"
-  },
-  "clampGenerator": {
-    "title": "Generador de Clamp",
-    "viewportMin": "Viewport Mínimo",
-    "viewportMax": "Viewport Máximo",
-    "fontSizeMin": "Tamaño Mínimo",
-    "fontSizeMax": "Tamaño Máximo",
-    "unit": "Unidad",
-    "cssOutput": "CSS Generado",
-    "copy": "Copiar",
-    "copied": "¡Copiado!",
-    "min": "Mín",
-    "ideal": "Ideal",
-    "max": "Máx"
-  },
-  "viewportPreview": {
-    "title": "Vista Previa en Vivo",
-    "font": "Familia de Fuente",
-    "note": "Nota: La unidad <code>vw</code> es relativa al viewport de tu navegador. Para pruebas responsivas precisas, usa esta vista para verificar la apariencia tipográfica, y Chrome DevTools para probar diferentes tamaños de pantalla."
+    "unitConverter": {
+      "title": "Conversor de Unidades",
+      "value": "Valor",
+      "from": "De",
+      "to": "A",
+      "baseFontSize": "Tamaño Base (px)",
+      "baseFontSizeHint": "Usado para cálculos rem/em (8-100px)",
+      "edit": "Editar",
+      "save": "Guardar",
+      "cancel": "Cancelar",
+      "result": "Resultado",
+      "copy": "Copiar",
+      "copied": "¡Copiado!",
+      "formula": "{{value}} {{from}} = {{result}} {{to}}"
+    },
+    "clampGenerator": {
+      "title": "Generador de Clamp",
+      "viewportMin": "Viewport Mínimo",
+      "viewportMax": "Viewport Máximo",
+      "fontSizeMin": "Tamaño Mínimo",
+      "fontSizeMax": "Tamaño Máximo",
+      "unit": "Unidad",
+      "cssOutput": "CSS Generado",
+      "copy": "Copiar",
+      "copied": "¡Copiado!",
+      "min": "Mín",
+      "ideal": "Ideal",
+      "max": "Máx"
+    },
+    "viewportPreview": {
+      "title": "Vista Previa en Vivo",
+      "font": "Familia de Fuente",
+      "note": "Nota: La unidad <code>vw</code> es relativa al viewport de tu navegador. Para pruebas responsivas precisas, usa esta vista para verificar la apariencia tipográfica, y Chrome DevTools para probar diferentes tamaños de pantalla."
+    }
   }
-}
 }

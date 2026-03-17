@@ -97,7 +97,7 @@ const Home = () => {
                         </div>
 
                         <div className="steps-grid">
-                            {/* Step 1 */}
+                            {/* Step 1: Unit Converter */}
                             <div className="step-card">
                                 <div className="step-number">01</div>
                                 <div className="step-icon">
@@ -110,14 +110,14 @@ const Home = () => {
                                 <h3 className="step-title">{t('home.step1Title')}</h3>
                                 <p className="step-description">{t('home.step1Desc')}</p>
                                 <ul className="step-features">
-                                    <li>✓ Support for 6 CSS units</li>
-                                    <li>✓ Custom base font size (8-100px)</li>
-                                    <li>✓ Viewport input for vh/vw</li>
-                                    <li>✓ One-click copy to clipboard</li>
+                                    {/* Features TRADUCIDAS - Mapeo del array */}
+                                    {t('home.step1Features', { returnObjects: true }).map((feature, index) => (
+                                        <li key={index}>✓ {feature}</li>
+                                    ))}
                                 </ul>
                             </div>
 
-                            {/* Step 2 */}
+                            {/* Step 2: Clamp Generator */}
                             <div className="step-card">
                                 <div className="step-number">02</div>
                                 <div className="step-icon">
@@ -128,14 +128,14 @@ const Home = () => {
                                 <h3 className="step-title">{t('home.step2Title')}</h3>
                                 <p className="step-description">{t('home.step2Desc')}</p>
                                 <ul className="step-features">
-                                    <li>✓ Min/Max viewport settings</li>
-                                    <li>✓ Min/Max font size with unit selector</li>
-                                    <li>✓ Automatic calculation of ideal value</li>
-                                    <li>✓ Ready-to-use CSS output</li>
+                                    {/* Features TRADUCIDAS - Mapeo del array */}
+                                    {t('home.step2Features', { returnObjects: true }).map((feature, index) => (
+                                        <li key={index}>✓ {feature}</li>
+                                    ))}
                                 </ul>
                             </div>
 
-                            {/* Step 3 */}
+                            {/* Step 3: Live Preview */}
                             <div className="step-card">
                                 <div className="step-number">03</div>
                                 <div className="step-icon">
@@ -147,10 +147,10 @@ const Home = () => {
                                 <h3 className="step-title">{t('home.step3Title')}</h3>
                                 <p className="step-description">{t('home.step3Desc')}</p>
                                 <ul className="step-features">
-                                    <li>✓ 6 popular Google Fonts</li>
-                                    <li>✓ Real-time font-size rendering</li>
-                                    <li>✓ Full-width preview area</li>
-                                    <li>✓ CSS output displayed</li>
+                                    {/* Features TRADUCIDAS - Mapeo del array */}
+                                    {t('home.step3Features', { returnObjects: true }).map((feature, index) => (
+                                        <li key={index}>✓ {feature}</li>
+                                    ))}
                                 </ul>
                             </div>
                         </div>
@@ -158,7 +158,9 @@ const Home = () => {
                 </section>
 
                 {/* FAQ Section */}
+                <section id="faq">
                 <FAQ />
+                </section>
 
                 {/* Why Typography Matters Section */}
                 <section className="typography-matters-section">

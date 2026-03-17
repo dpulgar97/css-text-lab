@@ -21,7 +21,25 @@
     "typographyMattersTitle": "Why Responsive Typography Matters",
     "blogTeaserTitle": "Learn More About Typography",
     "blogTeaserSubtitle": "Dive deeper into responsive design best practices with our guides.",
-    "visitBlog": "Visit Blog"
+    "visitBlog": "Visit Blog",
+    "step1Features": [
+      "Support for 6 CSS units",
+      "Custom base font size (8-100px)",
+      "Viewport input for vh/vw",
+      "One-click copy to clipboard"
+    ],
+    "step2Features": [
+      "Min/Max viewport settings",
+      "Min/Max font size with unit selector",
+      "Automatic calculation of ideal value",
+      "Ready-to-use CSS output"
+    ],
+    "step3Features": [
+      "6 popular Google Fonts",
+      "Real-time font-size rendering",
+      "Full-width preview area",
+      "CSS output displayed"
+    ]
   },
   "footer": {
     "privacy": "Privacy Policy",
@@ -35,11 +53,12 @@
     "emailTitle": "Email",
     "emailDesc": "The fastest way to reach us. We typically respond within 1-2 business days.",
     "whatToInclude": "What to Include in Your Message",
+    "whatToIncludeDesc": "To help us assist you better, please include:",
     "bugReports": "Bug reports: Steps to reproduce, browser/version, and screenshots if possible",
     "featureRequests": "Feature requests: Describe the problem you're trying to solve",
     "generalQuestions": "General questions: Be as specific as you can about what you need",
     "beforeYouWrite": "Before You Write",
-    "checkFAQ": "Check our Frequently Asked Questions section. Your question might already be answered there!"
+    "checkFAQ": "Check our <a href=\"/#faq\">Frequently Asked Questions</a> section. Your question might already be answered there!"
   },
   "privacy": {
     "title": "Privacy Policy",
@@ -68,40 +87,39 @@
       "title": "Typography Tool",
       "subtitle": "Convert units, generate clamp(), and preview in real-time"
     },
-  "unitConverter": {
-    "title": "Unit Converter",
-    "value": "Value",
-    "from": "From",
-    "to": "To",
-    "baseFontSize": "Base Font Size (px)",
-    "baseFontSizeHint": "Used for rem/em calculations (8-100px)",
-    "edit": "Edit",
-    "save": "Save",
-    "cancel": "Cancel",
-    "result": "Result",
-    "copy": "Copy",
-    "copied": "Copied!",
-    "formula": "{{value}} {{from}} = {{result}} {{to}}"
-  },
-  "clampGenerator": {
-    "title": "Clamp Generator",
-    "viewportMin": "Viewport Min",
-    "viewportMax": "Viewport Max",
-    "fontSizeMin": "Font Size Min",
-    "fontSizeMax": "Font Size Max",
-    "unit": "Unit",
-    "cssOutput": "CSS Output",
-    "copy": "Copy",
-    "copied": "Copied!",
-    "min": "Min",
-    "ideal": "Ideal",
-    "max": "Max"
-  },
-  "viewportPreview": {
-    "title": "Live Preview",
-    "font": "Font Family",
-    "note": "Note: The <code>vw</code> unit is relative to your browser viewport. For accurate responsive testing, use this preview to check typography appearance, and Chrome DevTools to test different screen sizes."
+    "unitConverter": {
+      "title": "Unit Converter",
+      "value": "Value",
+      "from": "From",
+      "to": "To",
+      "baseFontSize": "Base Font Size (px)",
+      "baseFontSizeHint": "Used for rem/em calculations (8-100px)",
+      "edit": "Edit",
+      "save": "Save",
+      "cancel": "Cancel",
+      "result": "Result",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "formula": "{{value}} {{from}} = {{result}} {{to}}"
+    },
+    "clampGenerator": {
+      "title": "Clamp Generator",
+      "viewportMin": "Viewport Min",
+      "viewportMax": "Viewport Max",
+      "fontSizeMin": "Font Size Min",
+      "fontSizeMax": "Font Size Max",
+      "unit": "Unit",
+      "cssOutput": "CSS Output",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "min": "Min",
+      "ideal": "Ideal",
+      "max": "Max"
+    },
+    "viewportPreview": {
+      "title": "Live Preview",
+      "font": "Font Family",
+      "note": "Note: The <code>vw</code> unit is relative to your browser viewport. For accurate responsive testing, use this preview to check typography appearance, and Chrome DevTools to test different screen sizes."
+    }
   }
 }
-}
-
