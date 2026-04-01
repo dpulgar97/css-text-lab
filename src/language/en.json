@@ -39,13 +39,26 @@
       "Real-time font-size rendering",
       "Full-width preview area",
       "CSS output displayed"
-    ]
+    ],
+    "typographyMatters": {
+      "intro": "Typography is one of the most important aspects of web design. It affects readability, accessibility, and overall user experience. Yet, many developers struggle with making text scale properly across different screen sizes.",
+      "problemTitle": "The Problem with Traditional Approaches",
+      "problemIntro": "Before CSS clamp(), developers relied on media queries to adjust font sizes at specific breakpoints. This approach has several drawbacks:",
+      "problem1": "Discontinuous scaling: Text jumps between sizes instead of flowing smoothly.",
+      "problem2": "Code bloat: Multiple media queries for each text element.",
+      "problem3": "Maintenance nightmare: Changing one value requires updating multiple breakpoints.",
+      "solutionTitle": "The clamp() Solution",
+      "solution": "CSS clamp() provides a mathematical approach to fluid typography. It defines a minimum size, a maximum size, and an ideal size that scales with the viewport. The result? Text that grows and shrinks smoothly without any media queries.",
+      "codeTraditional": "Traditional approach",
+      "codeClamp": "With clamp()",
+      "accessibilityTitle": "Accessibility Considerations",
+      "accessibility": "Responsive typography isn't just about aesthetics, it's about accessibility. Users with visual impairments may zoom their browsers or use custom font sizes. Using relative units like rem and ensuring your clamp() values have reasonable minimums helps ensure your content remains readable for everyone."
+    }
   },
   "footer": {
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
-    "contact": "Contact",
-    "copyright": "Built for developers."
+    "contact": "Contact"
   },
   "contact": {
     "title": "Contact Us",
@@ -58,19 +71,57 @@
     "featureRequests": "Feature requests: Describe the problem you're trying to solve",
     "generalQuestions": "General questions: Be as specific as you can about what you need",
     "beforeYouWrite": "Before You Write",
-    "checkFAQ": "Check our <a href=\"/#faq\">Frequently Asked Questions</a> section. Your question might already be answered there!"
+    "checkFAQStart": "Check our ",
+    "faqLinkText": "Frequently Asked Questions",
+    "checkFAQEnd": " section. Your question might already be answered there!"
   },
   "privacy": {
     "title": "Privacy Policy",
+    "lastUpdated": "Last Updated",
     "section1Title": "1. Introduction",
+    "section1Content": "Welcome to Typography Tool (accessible at tusioweb.com). We value your privacy and are committed to protecting any information we may collect through our website. This Privacy Policy explains what information we collect, how we use it, and your rights regarding your data.",
     "section2Title": "2. Information We Collect",
+    "section2Subtitle1": "Log Files",
+    "section2Content1": "Like most websites, we collect information that your browser sends whenever you visit. This may include:",
+    "section2List1": "IP address",
+    "section2List2": "Browser type and version",
+    "section2List3": "Pages visited and time spent",
+    "section2List4": "Referring website (if any)",
+    "section2Content2": "This data is collected automatically through Google Analytics to help us understand how users interact with our tool and improve the user experience.",
+    "section2Subtitle2": "Local Storage",
+    "section2Content3": "We use browser local storage to save your preferences (such as base font size and unit selections) to improve your experience. This data is stored locally on your device and is not transmitted to our servers or shared with third parties.",
     "section3Title": "3. Third-Party Services",
+    "section3Subtitle1": "Google Fonts",
+    "section3Content1": "We use Google Fonts to provide the live typography preview feature. When you use this tool, your browser may connect directly to Google servers to load font files. Google may collect technical data about your connection as described in their Privacy Policy.",
+    "section3Subtitle2": "Google Analytics",
+    "section3Content2": "We use Google Analytics to analyze website usage and improve our service. Google Analytics collects anonymized data about your visit. You can opt out of Google Analytics tracking by installing the Google Analytics Opt-out Browser Add-on.",
     "section4Title": "4. How We Use Your Information",
+    "section4Content": "We use the collected information to:",
+    "section4List1": "Provide and maintain our tool",
+    "section4List2": "Understand how users interact with our website",
+    "section4List3": "Improve user experience and functionality",
+    "section4List4": "Monitor website performance and security",
     "section5Title": "5. Data Retention",
+    "section5List1": "Log files and Analytics: Retained for 14 months (Google Analytics default)",
+    "section5List2": "Local storage: Stored indefinitely on your device until you clear your browser cache",
+    "section5List3": "No personal data is stored on our servers",
     "section6Title": "6. Your Rights (GDPR Compliance)",
+    "section6Content": "If you are located in the European Economic Area (EEA), you have the following rights:",
+    "section6List1": "Access to your personal data",
+    "section6List2": "Correction of inaccurate data",
+    "section6List3": "Deletion of your data",
+    "section6List4": "Restriction of processing",
+    "section6List5": "Data portability",
+    "section6List6": "Object to processing",
+    "section6Content2": "To exercise these rights, please contact us at:",
     "section7Title": "7. Children's Privacy",
+    "section7Content": "Our tool is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe we have collected such information, please contact us immediately.",
     "section8Title": "8. Changes to This Privacy Policy",
-    "section9Title": "9. Contact Us"
+    "section8Content": "We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the Last Updated date.",
+    "section9Title": "9. Contact Us",
+    "section9Content": "If you have any questions about this Privacy Policy, please contact us at:",
+    "contactEmail": "Email",
+    "contactWebsite": "Website"
   },
   "common": {
     "loading": "Loading...",
@@ -121,5 +172,32 @@
       "font": "Font Family",
       "note": "Note: The <code>vw</code> unit is relative to your browser viewport. For accurate responsive testing, use this preview to check typography appearance, and Chrome DevTools to test different screen sizes."
     }
+  },
+
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about CSS clamp() and responsive typography.",
+    "questions": [
+      {
+        "question": "Is the clamp() function supported by all modern browsers?",
+        "answer": "Yes, the CSS clamp() function is widely supported in all evergreen browsers (Chrome, Firefox, Safari, and Edge) since early 2020. If your project requires support for legacy browsers like Internet Explorer, we recommend providing a static font-size fallback before the clamp() declaration to ensure basic readability."
+      },
+      {
+        "question": "Why does the tool use 3 to 5 decimal places in its output?",
+        "answer": "Precision is key in responsive design. We provide up to 5 decimal places to ensure that the fluid scaling remains smooth across all screen resolutions. This prevents 'rounding jumps' in typography that can sometimes occur in high-density displays (Retina/4K) when using simpler values."
+      },
+      {
+        "question": "Does using rem instead of px affect WCAG accessibility compliance?",
+        "answer": "Absolutely. Using rem is a best practice for accessibility because it respects the user's browser font-size settings. If a visually impaired user increases their default browser font size, your website will scale accordingly. Using fixed px values ignores these preferences, potentially making your site less accessible."
+      },
+      {
+        "question": "Can I use the generated font-clamp code in utility-first frameworks like Tailwind CSS?",
+        "answer": "Yes! You can easily integrate the output into your tailwind.config.js file by adding it to the extend: { fontSize: { ... } } section. Alternatively, you can use Tailwind's arbitrary value syntax, for example: text-[clamp(1rem,5vw,2.5rem)]."
+      },
+      {
+        "question": "What's the recommended base font size for responsive projects?",
+        "answer": "The industry standard is 16px (1rem), which is the default in most browsers. This provides a good balance between readability and scalability. However, some projects may use 14px for data-dense interfaces like dashboards, or 18px for content-focused sites like blogs. The key is consistency—once you choose a base size, use it throughout your project for all rem-based calculations."
+      }
+    ]
   }
 }

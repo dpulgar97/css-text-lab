@@ -4,7 +4,10 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+*:focus {
+  scroll-margin: 0;
+}
+
+#faq {
+  scroll-margin-top: 120px;
 }

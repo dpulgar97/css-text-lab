@@ -39,13 +39,26 @@
       "Renderizado de font-size en tiempo real",
       "Área de preview a ancho completo",
       "CSS generado visible"
-    ]
+    ],
+    "typographyMatters": {
+      "intro": "La tipografía es uno de los aspectos más importantes del diseño web. Afecta la legibilidad, accesibilidad y la experiencia de usuario en general. Sin embargo, muchos desarrolladores luchan por hacer que el texto escale correctamente en diferentes tamaños de pantalla.",
+      "problemTitle": "El Problema con los Enfoques Tradicionales",
+      "problemIntro": "Antes de CSS clamp(), los desarrolladores dependían de media queries para ajustar tamaños de fuente en breakpoints específicos. Este enfoque tiene varios inconvenientes:",
+      "problem1": "Escalado discontinuo: El texto salta entre tamaños en lugar de fluir suavemente.",
+      "problem2": "Inflado de código: Múltiples media queries para cada elemento de texto.",
+      "problem3": "Pesadilla de mantenimiento: Cambiar un valor requiere actualizar múltiples breakpoints.",
+      "solutionTitle": "La Solución clamp()",
+      "solution": "CSS clamp() proporciona un enfoque matemático para la tipografía fluida. Define un tamaño mínimo, un tamaño máximo y un tamaño ideal que escala con el viewport. ¿El resultado? Texto que crece y se encoge suavemente sin media queries.",
+      "codeTraditional": "Enfoque tradicional",
+      "codeClamp": "Con clamp()",
+      "accessibilityTitle": "Consideraciones de Accesibilidad",
+      "accessibility": "La tipografía responsiva no es solo sobre estética, es sobre accesibilidad. Los usuarios con discapacidades visuales pueden hacer zoom en sus navegadores o usar tamaños de fuente personalizados. Usar unidades relativas como rem y asegurar que tus valores clamp() tengan mínimos razonables ayuda a garantizar que tu contenido permanezca legible para todos."
+    }
   },
   "footer": {
     "privacy": "Política de Privacidad",
     "terms": "Términos de Servicio",
-    "contact": "Contacto",
-    "copyright": "Hecho para desarrolladores."
+    "contact": "Contacto"
   },
   "contact": {
     "title": "Contáctanos",
@@ -58,19 +71,57 @@
     "featureRequests": "Solicitudes de funciones: Describe el problema que intentas resolver",
     "generalQuestions": "Preguntas generales: Sé lo más específico posible sobre lo que necesitas",
     "beforeYouWrite": "Antes de Escribir",
-    "checkFAQ": "Revisa nuestra sección de <a href=\"/#faq\"><b>Preguntas Frecuentes</b></a>. ¡Tu pregunta podría ya estar respondida!"
+    "checkFAQStart": "Revisa nuestra sección de ",
+    "faqLinkText": "Preguntas Frecuentes",
+    "checkFAQEnd": ". ¡Tu pregunta podría ya estar respondida!"
   },
   "privacy": {
     "title": "Política de Privacidad",
+    "lastUpdated": "Actualizado",
     "section1Title": "1. Introducción",
+    "section1Content": "Bienvenido a Typography Tool (accesible en tusioweb.com). Valoramos tu privacidad y estamos comprometidos a proteger cualquier información que podamos recopilar a través de nuestro sitio web. Esta Política de Privacidad explica qué información recopilamos, cómo la usamos y tus derechos sobre tus datos.",
     "section2Title": "2. Información Que Recopilamos",
+    "section2Subtitle1": "Archivos de Registro",
+    "section2Content1": "Como la mayoría de los sitios web, recopilamos información que tu navegador envía cada vez que visitas. Esto puede incluir:",
+    "section2List1": "Dirección IP",
+    "section2List2": "Tipo y versión del navegador",
+    "section2List3": "Páginas visitadas y tiempo empleado",
+    "section2List4": "Sitio web de referencia (si lo hay)",
+    "section2Content2": "Estos datos se recopilan automáticamente a través de Google Analytics para ayudarnos a entender cómo los usuarios interactúan con nuestra herramienta y mejorar la experiencia de usuario.",
+    "section2Subtitle2": "Almacenamiento Local",
+    "section2Content3": "Usamos el almacenamiento local del navegador para guardar tus preferencias (como el tamaño de fuente base y selecciones de unidades) para mejorar tu experiencia. Estos datos se almacenan localmente en tu dispositivo y no se transmiten a nuestros servidores ni se comparten con terceros.",
     "section3Title": "3. Servicios de Terceros",
+    "section3Subtitle1": "Google Fonts",
+    "section3Content1": "Usamos Google Fonts para proporcionar la función de vista previa de tipografía en vivo. Cuando usas esta herramienta, tu navegador puede conectarse directamente a los servidores de Google para cargar archivos de fuentes. Google puede recopilar datos técnicos sobre tu conexión como se describe en su Política de Privacidad.",
+    "section3Subtitle2": "Google Analytics",
+    "section3Content2": "Usamos Google Analytics para analizar el uso del sitio web y mejorar nuestro servicio. Google Analytics recopila datos anónimos sobre tu visita. Puedes optar por no participar del seguimiento de Google Analytics instalando el Complemento de Navegador para Excluirse de Google Analytics.",
     "section4Title": "4. Cómo Usamos Tu Información",
+    "section4Content": "Usamos la información recopilada para:",
+    "section4List1": "Proporcionar y mantener nuestra herramienta",
+    "section4List2": "Entender cómo los usuarios interactúan con nuestro sitio web",
+    "section4List3": "Mejorar la experiencia de usuario y funcionalidad",
+    "section4List4": "Monitorear el rendimiento y seguridad del sitio web",
     "section5Title": "5. Retención de Datos",
+    "section5List1": "Archivos de registro y Analytics: Se conservan durante 14 meses (predeterminado de Google Analytics)",
+    "section5List2": "Almacenamiento local: Se almacena indefinidamente en tu dispositivo hasta que limpies la caché de tu navegador",
+    "section5List3": "No se almacenan datos personales en nuestros servidores",
     "section6Title": "6. Tus Derechos (Cumplimiento GDPR)",
+    "section6Content": "Si te encuentras en el Espacio Económico Europeo (EEE), tienes los siguientes derechos:",
+    "section6List1": "Acceso a tus datos personales",
+    "section6List2": "Corrección de datos inexactos",
+    "section6List3": "Eliminación de tus datos",
+    "section6List4": "Restricción del procesamiento",
+    "section6List5": "Portabilidad de datos",
+    "section6List6": "Oposición al procesamiento",
+    "section6Content2": "Para ejercer estos derechos, por favor contáctanos en:",
     "section7Title": "7. Privacidad de Niños",
-    "section8Title": "8. Cambios a Esta Política",
-    "section9Title": "9. Contáctanos"
+    "section7Content": "Nuestra herramienta no está destinada a niños menores de 13 años. No recopilamos a sabiendas información personal de niños menores de 13 años. Si crees que hemos recopilado dicha información, por favor contáctanos inmediatamente.",
+    "section8Title": "8. Cambios a Esta Política de Privacidad",
+    "section8Content": "Podemos actualizar esta Política de Privacidad de vez en cuando. Te notificaremos cualquier cambio publicando la nueva Política de Privacidad en esta página y actualizando la fecha de Actualizado.",
+    "section9Title": "9. Contáctanos",
+    "section9Content": "Si tienes alguna pregunta sobre esta Política de Privacidad, por favor contáctanos en:",
+    "contactEmail": "Email",
+    "contactWebsite": "Sitio Web"
   },
   "common": {
     "loading": "Cargando...",
@@ -120,5 +171,32 @@
       "font": "Familia de Fuente",
       "note": "Nota: La unidad <code>vw</code> es relativa al viewport de tu navegador. Para pruebas responsivas precisas, usa esta vista para verificar la apariencia tipográfica, y Chrome DevTools para probar diferentes tamaños de pantalla."
     }
+  },
+
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Todo lo que necesitas saber sobre CSS clamp() y tipografía responsiva.",
+    "questions": [
+      {
+        "question": "¿La función clamp() es compatible con todos los navegadores modernos?",
+        "answer": "Sí, la función CSS clamp() es ampliamente compatible con todos los navegadores evergreen (Chrome, Firefox, Safari y Edge) desde principios de 2020. Si tu proyecto requiere soporte para navegadores legacy como Internet Explorer, recomendamos proporcionar un font-size estático de fallback antes de la declaración clamp() para asegurar legibilidad básica."
+      },
+      {
+        "question": "¿Por qué la herramienta usa 3 a 5 decimales en su salida?",
+        "answer": "La precisión es clave en diseño responsivo. Proporcionamos hasta 5 decimales para asegurar que el escalado fluido permanezca suave en todas las resoluciones de pantalla. Esto previene 'saltos de redondeo' en tipografía que pueden ocurrir en pantallas de alta densidad (Retina/4K) cuando se usan valores más simples."
+      },
+      {
+        "question": "¿Usar rem en lugar de px afecta el cumplimiento de accesibilidad WCAG?",
+        "answer": "Absolutamente. Usar rem es una mejor práctica para accesibilidad porque respeta la configuración de tamaño de fuente del navegador del usuario. Si un usuario con discapacidad visual aumenta el tamaño de fuente predeterminado de su navegador, tu sitio web escalará en consecuencia. Usar valores fijos en px ignora estas preferencias, potencialmente haciendo tu sitio menos accesible."
+      },
+      {
+        "question": "¿Puedo usar el código font-clamp generado en frameworks como Tailwind CSS?",
+        "answer": "¡Sí! Puedes integrar fácilmente la salida en tu archivo tailwind.config.js agregándolo a la sección extend: { fontSize: { ... } }. Alternativamente, puedes usar la sintaxis de valores arbitrarios de Tailwind, por ejemplo: text-[clamp(1rem,5vw,2.5rem)]."
+      },
+      {
+        "question": "¿Cuál es el tamaño de fuente base recomendado para proyectos responsivos?",
+        "answer": "El estándar de la industria es 16px (1rem), que es el predeterminado en la mayoría de navegadores. Esto proporciona un buen equilibrio entre legibilidad y escalabilidad. Sin embargo, algunos proyectos pueden usar 14px para interfaces densas en datos como dashboards, o 18px para sitios centrados en contenido como blogs. La clave es la consistencia: una vez que eliges un tamaño base, úsalo en todo tu proyecto para todos los cálculos basados en rem."
+      }
+    ]
   }
 }

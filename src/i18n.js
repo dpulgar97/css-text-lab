@@ -21,10 +21,10 @@ i18n
     fallbackLng: 'en',
     debug: false,
     interpolation: {
-      escapeValue: false, // React ya protege contra XSS
+      escapeValue: false,
     },
     detection: {
-      order: ['localStorage', 'navigator'],
+      order: ['path', 'localStorage', 'navigator'], // ← 'path' primero para detectar desde URL
       caches: ['localStorage'],
     },
   });

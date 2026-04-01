@@ -1,23 +1,27 @@
 // src/pages/Contact.jsx
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom'; // ← Agregar este import
+import { Helmet } from 'react-helmet-async';
 import Header from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import './Contact.css';
 
 const Contact = () => {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
+    const { lang } = useParams(); // ← Obtener idioma de la URL
+    const currentLang = lang || 'en';
+
     const toolName = "Typography Tool";
     const websiteUrl = "https://tusioweb.com";
-    const contactEmail = "tu-email@domain.com"; // ← CAMBIAR POR TU EMAIL REAL
+    const contactEmail = "tu-email@domain.com";
 
     return (
         <>
             <Helmet>
                 <title>{t('contact.title')} | {toolName}</title>
                 <meta name="description" content={t('contact.subtitle')} />
-                <link rel="canonical" href={`${websiteUrl}/contact`} />
+                <link rel="canonical" href={`${websiteUrl}/${currentLang}/contact`} />
             </Helmet>
 
             <Header />
@@ -60,7 +64,12 @@ const Contact = () => {
 
                         <section className="contact-faq-teaser">
                             <h2>{t('contact.beforeYouWrite')}</h2>
-                            <p dangerouslySetInnerHTML={{ __html: t('contact.checkFAQ') }} />
+                            {/* ⭐ ENLACE FAQ CON IDIOMA DINÁMICO ⭐ */}
+                            <p>
+                                {t('contact.checkFAQStart')}
+                                <a href={`/${currentLang}#faq`}>{t('contact.faqLinkText')}</a>
+                                {t('contact.checkFAQEnd')}
+                            </p>
                         </section>
                     </div>
                 </div>

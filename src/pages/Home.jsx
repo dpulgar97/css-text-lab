@@ -1,6 +1,7 @@
 // src/pages/Home.jsx
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Island from '../features/typograghy-tool/Island';
 import Navbar from '../components/layout/Navbar';
@@ -10,21 +11,23 @@ import './Home.css';
 
 const Home = () => {
     const { t, i18n } = useTranslation();
+    const { lang } = useParams();
+    const currentLang = lang || 'en';
+    const websiteURL = 'https://tusioweb.com/';
 
     // Función helper para renderizar HTML en traducciones (como <highlight>)
     const renderHTML = (text) => ({ __html: text });
 
     // Meta tags dinámicos según idioma (solo título y descripción)
     const getMetaTitle = () => {
-        const baseTitle = "CSS Clamp Generator & Unit Converter | Typography Tool";
-        if (i18n.language === 'es') return "Generador CSS Clamp y Conversor de Unidades | Typography Tool";
-        if (i18n.language === 'pt') return "Gerador CSS Clamp e Conversor de Unidades | Typography Tool";
-        return baseTitle;
+        if (currentLang === 'es') return "Generador CSS Clamp y Conversor de Unidades | Typography Tool";
+        if (currentLang === 'pt') return "Gerador CSS Clamp e Conversor de Unidades | Typography Tool";
+        return "CSS Clamp Generator & Unit Converter | Typography Tool";
     };
 
     const getMetaDescription = () => {
-        if (i18n.language === 'es') return "Generador gratuito de CSS clamp() y conversor de unidades para desarrolladores. Genera valores de font-size responsivos al instante con vista previa en vivo.";
-        if (i18n.language === 'pt') return "Gerador gratuito de CSS clamp() e conversor de unidades para desenvolvedores. Gere valores de font-size responsivos instantaneamente com visualização ao vivo.";
+        if (currentLang === 'es') return "Generador gratuito de CSS clamp() y conversor de unidades para desarrolladores. Genera valores de font-size responsivos al instante con vista previa en vivo.";
+        if (currentLang === 'pt') return "Gerador gratuito de CSS clamp() e conversor de unidades para desenvolvedores. Gere valores de font-size responsivos instantaneamente com visualização ao vivo.";
         return "Free CSS clamp() generator and unit converter for developers. Generate responsive font-size values instantly with live preview. Support for px, rem, em, vh, vw.";
     };
 
@@ -41,21 +44,25 @@ const Home = () => {
                     content="css clamp, font size converter, responsive typography, rem to px, css units, clamp generator, fluid typography"
                 />
 
-                {/* Canonical URL (siempre en inglés como versión principal) */}
-                <link rel="canonical" href="https://tusioweb.com/" />
+                <link rel="canonical" href={`${websiteURL}/${currentLang}`} />
 
+                {/* Hreflang tags para SEO multi-idioma */}
+                <link rel="alternate" hrefLang="en" href={`${websiteURL}/en`} />
+                <link rel="alternate" hrefLang="es" href={`${websiteURL}/es`} />
+                <link rel="alternate" hrefLang="pt" href={`${websiteURL}/pt`} />
+                <link rel="alternate" hrefLang="x-default" href={`${websiteURL}/en`} />
+
+                {/* Open Graph con locale */}
+                <meta property="og:locale" content={currentLang === 'es' ? 'es_ES' : currentLang === 'pt' ? 'pt_BR' : 'en_US'} />
+                <meta property="og:url" content={`${websiteURL}/${currentLang}`} />
                 {/* Hreflang para multi-idioma (IMPORTANTE para SEO) */}
-                <link rel="alternate" hrefLang="en" href="https://tusioweb.com/" />
-                <link rel="alternate" hrefLang="es" href="https://tusioweb.com/es/" />
-                <link rel="alternate" hrefLang="pt" href="https://tusioweb.com/pt/" />
-                <link rel="alternate" hrefLang="x-default" href="https://tusioweb.com/" />
 
                 {/* Open Graph (en inglés como fallback global) */}
                 <meta property="og:title" content="CSS Clamp Generator & Unit Converter" />
                 <meta property="og:description" content="Generate responsive font-size clamp() values instantly. Free typography tool for developers." />
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://tusioweb.com/" />
-                <meta property="og:locale" content="en_US" />
+                <meta property="og:url" content={`${websiteURL}/${currentLang}`} />
+                <meta property="og:locale" content={currentLang === 'es' ? 'es_ES' : currentLang === 'pt' ? 'pt_BR' : 'en_US'} />
                 <meta property="og:locale:alternate" content="es_ES" />
                 <meta property="og:locale:alternate" content="pt_BR" />
 
@@ -159,42 +166,42 @@ const Home = () => {
 
                 {/* FAQ Section */}
                 <section id="faq">
-                <FAQ />
+                    <FAQ />
                 </section>
 
                 {/* Why Typography Matters Section */}
                 <section className="typography-matters-section">
                     <div className="container">
                         <div className="content-block">
+                            {/* Título - YA TRADUCIDO */}
                             <h2 className="section-title">{t('home.typographyMattersTitle')}</h2>
 
                             <div className="content-body">
-                                <p>
-                                    Typography is one of the most important aspects of web design. It affects readability,
-                                    accessibility, and overall user experience. Yet, many developers struggle with making
-                                    text scale properly across different screen sizes.
-                                </p>
+                                {/* Intro - TRADUCIDO */}
+                                <p>{t('home.typographyMatters.intro')}</p>
 
-                                <h3>The Problem with Traditional Approaches</h3>
-                                <p>
-                                    Before CSS clamp(), developers relied on media queries to adjust font sizes at specific
-                                    breakpoints. This approach has several drawbacks:
-                                </p>
+                                {/* Problem Section - TRADUCIDO */}
+                                <h3>{t('home.typographyMatters.problemTitle')}</h3>
+                                <p>{t('home.typographyMatters.problemIntro')}</p>
                                 <ul>
-                                    <li><strong>Discontinuous scaling:</strong> Text jumps between sizes instead of flowing smoothly.</li>
-                                    <li><strong>Code bloat:</strong> Multiple media queries for each text element.</li>
-                                    <li><strong>Maintenance nightmare:</strong> Changing one value requires updating multiple breakpoints.</li>
+                                    <li>
+                                        <strong>{t('home.typographyMatters.problem1')}</strong>
+                                    </li>
+                                    <li>
+                                        <strong>{t('home.typographyMatters.problem2')}</strong>
+                                    </li>
+                                    <li>
+                                        <strong>{t('home.typographyMatters.problem3')}</strong>
+                                    </li>
                                 </ul>
 
-                                <h3>The clamp() Solution</h3>
-                                <p>
-                                    CSS clamp() provides a mathematical approach to fluid typography. It defines a minimum
-                                    size, a maximum size, and an ideal size that scales with the viewport. The result?
-                                    Text that grows and shrinks smoothly without any media queries.
-                                </p>
+                                {/* Solution Section - TRADUCIDO */}
+                                <h3>{t('home.typographyMatters.solutionTitle')}</h3>
+                                <p>{t('home.typographyMatters.solution')}</p>
 
+                                {/* Code Example - LOS LABELS SE TRADUCEN, EL CÓDIGO NO */}
                                 <div className="code-example">
-                                    <code>Traditional approach</code>
+                                    <code>{t('home.typographyMatters.codeTraditional')}</code>
                                     <pre>{`h1 {
   font-size: 1.5rem;
 }
@@ -211,19 +218,15 @@ const Home = () => {
   }
 }`}</pre>
 
-                                    <code>With clamp()</code>
+                                    <code>{t('home.typographyMatters.codeClamp')}</code>
                                     <pre>{`h1 {
   font-size: clamp(1.5rem, 1rem + 2vw, 2.5rem);
 }`}</pre>
                                 </div>
 
-                                <h3>Accessibility Considerations</h3>
-                                <p>
-                                    Responsive typography isn't just about aesthetics, it's about accessibility. Users with
-                                    visual impairments may zoom their browsers or use custom font sizes. Using relative units
-                                    like rem and ensuring your clamp() values have reasonable minimums helps ensure your
-                                    content remains readable for everyone.
-                                </p>
+                                {/* Accessibility Section - TRADUCIDO */}
+                                <h3>{t('home.typographyMatters.accessibilityTitle')}</h3>
+                                <p>{t('home.typographyMatters.accessibility')}</p>
                             </div>
                         </div>
                     </div>

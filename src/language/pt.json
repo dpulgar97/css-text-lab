@@ -39,13 +39,26 @@
       "Renderização de font-size em tempo real",
       "Área de visualização em largura total",
       "CSS gerado visível"
-    ]
+    ],
+    "typographyMatters": {
+      "intro": "A tipografia é um dos aspectos mais importantes do design web. Afeta a legibilidade, acessibilidade e a experiência do usuário em geral. No entanto, muitos desenvolvedores lutam para fazer o texto escalar corretamente em diferentes tamanhos de tela.",
+      "problemTitle": "O Problema com Abordagens Tradicionais",
+      "problemIntro": "Antes do CSS clamp(), os desenvolvedores dependiam de media queries para ajustar tamanhos de fonte em breakpoints específicos. Esta abordagem tem várias desvantagens:",
+      "problem1": "Escalonamento descontínuo: O texto salta entre tamanhos em vez de fluir suavemente.",
+      "problem2": "Inflação de código: Múltiplas media queries para cada elemento de texto.",
+      "problem3": "Pesadelo de manutenção: Alterar um valor requer atualizar múltiplos breakpoints.",
+      "solutionTitle": "A Solução clamp()",
+      "solution": "CSS clamp() fornece uma abordagem matemática para tipografia fluida. Define um tamanho mínimo, um tamanho máximo e um tamanho ideal que escala com o viewport. O resultado? Texto que cresce e diminui suavemente sem media queries.",
+      "codeTraditional": "Abordagem tradicional",
+      "codeClamp": "Com clamp()",
+      "accessibilityTitle": "Considerações de Acessibilidade",
+      "accessibility": "A tipografia responsiva não é apenas sobre estética, é sobre acessibilidade. Usuários com deficiências visuais podem ampliar seus navegadores ou usar tamanhos de fonte personalizados. Usar unidades relativas como rem e garantir que seus valores clamp() tenham mínimos razoáveis ajuda a garantir que seu conteúdo permaneça legível para todos."
+    }
   },
   "footer": {
     "privacy": "Política de Privacidade",
     "terms": "Termos de Serviço",
-    "contact": "Contato",
-    "copyright": "Feito para desenvolvedores."
+    "contact": "Contato"
   },
   "contact": {
     "title": "Fale Conosco",
@@ -57,20 +70,57 @@
     "bugReports": "Relatos de bugs: Passos para reproduzir, navegador/versão e capturas se possível",
     "featureRequests": "Solicitações de recursos: Descreva o problema que está tentando resolver",
     "generalQuestions": "Perguntas gerais: Seja o mais específico possível sobre o que você precisa",
-    "beforeYouWrite": "Antes de Escrever",
-    "checkFAQ": "Verifique nossa seção de <a href=\"/#faq\"><b>Perguntas Frequentes</b></a>. Sua pergunta pode já estar respondida!"
+    "checkFAQStart": "Verifique nossa seção de ",
+    "faqLinkText": "Perguntas Frequentes",
+    "checkFAQEnd": ". Sua pergunta pode já estar respondida!"
   },
   "privacy": {
     "title": "Política de Privacidade",
+    "lastUpdated": "Atualizado",
     "section1Title": "1. Introdução",
+    "section1Content": "Bem-vindo ao Typography Tool (acessível em tusioweb.com). Valorizamos sua privacidade e estamos comprometidos em proteger qualquer informação que possamos coletar através do nosso site. Esta Política de Privacidade explica quais informações coletamos, como as usamos e seus direitos sobre seus dados.",
     "section2Title": "2. Informações Que Coletamos",
+    "section2Subtitle1": "Arquivos de Log",
+    "section2Content1": "Como a maioria dos sites, coletamos informações que seu navegador envia sempre que você visita. Isso pode incluir:",
+    "section2List1": "Endereço IP",
+    "section2List2": "Tipo e versão do navegador",
+    "section2List3": "Páginas visitadas e tempo gasto",
+    "section2List4": "Site de referência (se houver)",
+    "section2Content2": "Esses dados são coletados automaticamente através do Google Analytics para nos ajudar a entender como os usuários interagem com nossa ferramenta e melhorar a experiência do usuário.",
+    "section2Subtitle2": "Armazenamento Local",
+    "section2Content3": "Usamos o armazenamento local do navegador para salvar suas preferências (como tamanho de fonte base e seleções de unidades) para melhorar sua experiência. Esses dados são armazenados localmente em seu dispositivo e não são transmitidos para nossos servidores ou compartilhados com terceiros.",
     "section3Title": "3. Serviços de Terceiros",
+    "section3Subtitle1": "Google Fonts",
+    "section3Content1": "Usamos Google Fonts para fornecer o recurso de visualização de tipografia ao vivo. Quando você usa esta ferramenta, seu navegador pode se conectar diretamente aos servidores do Google para carregar arquivos de fontes. O Google pode coletar dados técnicos sobre sua conexão conforme descrito em sua Política de Privacidade.",
+    "section3Subtitle2": "Google Analytics",
+    "section3Content2": "Usamos Google Analytics para analisar o uso do site e melhorar nosso serviço. O Google Analytics coleta dados anônimos sobre sua visita. Você pode optar por não participar do rastreamento do Google Analytics instalando o Complemento de Navegador para Excluir do Google Analytics.",
     "section4Title": "4. Como Usamos Suas Informações",
+    "section4Content": "Usamos as informações coletadas para:",
+    "section4List1": "Fornecer e manter nossa ferramenta",
+    "section4List2": "Entender como os usuários interagem com nosso site",
+    "section4List3": "Melhorar a experiência do usuário e funcionalidade",
+    "section4List4": "Monitorar o desempenho e segurança do site",
     "section5Title": "5. Retenção de Dados",
+    "section5List1": "Arquivos de log e Analytics: Retidos por 14 meses (padrão do Google Analytics)",
+    "section5List2": "Armazenamento local: Armazenado indefinidamente em seu dispositivo até que você limpe o cache do navegador",
+    "section5List3": "Nenhum dado pessoal é armazenado em nossos servidores",
     "section6Title": "6. Seus Direitos (Conformidade GDPR)",
+    "section6Content": "Se você está localizado no Espaço Econômico Europeu (EEE), você tem os seguintes direitos:",
+    "section6List1": "Acesso aos seus dados pessoais",
+    "section6List2": "Correção de dados imprecisos",
+    "section6List3": "Exclusão de seus dados",
+    "section6List4": "Restrição de processamento",
+    "section6List5": "Portabilidade de dados",
+    "section6List6": "Oposição ao processamento",
+    "section6Content2": "Para exercer esses direitos, entre em contato conosco em:",
     "section7Title": "7. Privacidade Infantil",
-    "section8Title": "8. Alterações Nesta Política",
-    "section9Title": "9. Fale Conosco"
+    "section7Content": "Nossa ferramenta não se destina a crianças menores de 13 anos. Não coletamos intencionalmente informações pessoais de crianças menores de 13 anos. Se você acredita que coletamos tais informações, entre em contato conosco imediatamente.",
+    "section8Title": "8. Alterações Nesta Política de Privacidade",
+    "section8Content": "Podemos atualizar esta Política de Privacidade de vez em quando. Notificaremos você sobre quaisquer alterações publicando a nova Política de Privacidade nesta página e atualizando a data Atualizado.",
+    "section9Title": "9. Fale Conosco",
+    "section9Content": "Se você tiver alguma dúvida sobre esta Política de Privacidade, entre em contato conosco em:",
+    "contactEmail": "Email",
+    "contactWebsite": "Site"
   },
   "common": {
     "loading": "Carregando...",
@@ -120,5 +170,32 @@
       "font": "Família da Fonte",
       "note": "Nota: A unidade <code>vw</code> é relativa ao viewport do seu navegador. Para testes responsivos precisos, use esta visualização para verificar a aparência tipográfica, e o Chrome DevTools para testar diferentes tamanhos de tela."
     }
+  },
+
+  "faq": {
+    "title": "Perguntas Frequentes",
+    "subtitle": "Tudo o que você precisa saber sobre CSS clamp() e tipografia responsiva.",
+    "questions": [
+      {
+        "question": "A função clamp() é compatível com todos os navegadores modernos?",
+        "answer": "Sim, a função CSS clamp() é amplamente compatível com todos os navegadores evergreen (Chrome, Firefox, Safari e Edge) desde o início de 2020. Se seu projeto requer suporte para navegadores legados como Internet Explorer, recomendamos fornecer um font-size estático de fallback antes da declaração clamp() para garantir legibilidade básica."
+      },
+      {
+        "question": "Por que a ferramenta usa 3 a 5 casas decimais em sua saída?",
+        "answer": "A precisão é chave no design responsivo. Fornecemos até 5 casas decimais para garantir que o escalonamento fluido permaneça suave em todas as resoluções de tela. Isso previne 'saltos de arredondamento' na tipografia que podem ocorrer em telas de alta densidade (Retina/4K) ao usar valores mais simples."
+      },
+      {
+        "question": "Usar rem em vez de px afeta a conformidade de acessibilidade WCAG?",
+        "answer": "Absolutamente. Usar rem é uma melhor prática para acessibilidade porque respeita as configurações de tamanho de fonte do navegador do usuário. Se um usuário com deficiência visual aumenta o tamanho de fonte padrão do navegador, seu site escalará adequadamente. Usar valores fixos em px ignora essas preferências, potencialmente tornando seu site menos acessível."
+      },
+      {
+        "question": "Posso usar o código font-clamp gerado em frameworks como Tailwind CSS?",
+        "answer": "Sim! Você pode integrar facilmente a saída no seu arquivo tailwind.config.js adicionando-o à seção extend: { fontSize: { ... } }. Alternativamente, você pode usar a sintaxe de valores arbitrários do Tailwind, por exemplo: text-[clamp(1rem,5vw,2.5rem)]."
+      },
+      {
+        "question": "Qual é o tamanho de fonte base recomendado para projetos responsivos?",
+        "answer": "O padrão da indústria é 16px (1rem), que é o padrão na maioria dos navegadores. Isso fornece um bom equilíbrio entre legibilidade e escalabilidade. No entanto, alguns projetos podem usar 14px para interfaces densas em dados como dashboards, ou 18px para sites focados em conteúdo como blogs. A chave é a consistência: uma vez que você escolhe um tamanho base, use-o em todo o seu projeto para todos os cálculos baseados em rem."
+      }
+    ]
   }
 }

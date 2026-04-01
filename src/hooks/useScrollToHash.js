@@ -12,7 +12,7 @@ const useScrollToHash = () => {
 
         if (element) {
           setTimeout(() => {
-            element.scrollIntoView({ behavior: "smooth", block: "start" });
+            element.scrollIntoView({ behavior: "instant", block: "start" });
           }, 100);
         }
       }

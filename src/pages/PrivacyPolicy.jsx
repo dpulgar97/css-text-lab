@@ -1,21 +1,28 @@
+// src/pages/PrivacyPolicy.jsx
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Header from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import './PrivacyPolicy.css';
 
 const PrivacyPolicy = () => {
-    const lastUpdated = "January 15, 2025";
+    const { t } = useTranslation();
+
+    const lastUpdated = "January 15, 2025"; // ← ACTUALIZAR CON LA FECHA REAL
     const toolName = "Typography Tool";
     const websiteUrl = "https://tusioweb.com";
-    const contactEmail = "tu-email@domain.com";
+    const contactEmail = "tu-email@domain.com"; // ← TU EMAIL REAL
+    const { lang } = useParams();
+    const currentLang = lang || 'en';
 
     return (
         <>
             <Helmet>
-                <title>Privacy Policy | {toolName}</title>
-                <meta name="description" content="Privacy Policy for Typography Tool. Learn how we collect, use, and protect your data." />
-                <link rel="canonical" href={`${websiteUrl}/privacy`} />
+                <title>{t('privacy.title')} | {toolName}</title>
+                <meta name="description" content={t('privacy.section1Content')} />
+                <link rel="canonical" href={`${websiteUrl}/${currentLang}/privacy`} />
             </Helmet>
 
             <Header />
@@ -24,143 +31,106 @@ const PrivacyPolicy = () => {
                 <div className="container">
                     <div className="policy-content">
                         <header className="policy-header">
-                            <h1 className="policy-title">Privacy Policy</h1>
-                            <p className="policy-updated">Last Updated: {lastUpdated}</p>
+                            {/* Título - TRADUCIDO */}
+                            <h1 className="policy-title">{t('privacy.title')}</h1>
+
+                            {/* Fecha - TRADUCIDO + fecha dinámica */}
+                            <p className="policy-updated">
+                                {t('privacy.lastUpdated')}: {lastUpdated}
+                            </p>
                         </header>
 
+                        {/* Section 1: Introduction */}
                         <section className="policy-section">
-                            <h2>1. Introduction</h2>
-                            <p>
-                                Welcome to <strong>{toolName}</strong> (accessible at {websiteUrl}).
-                                We value your privacy and are committed to protecting any information we may collect
-                                through our website. This Privacy Policy explains what information we collect, how we
-                                use it, and your rights regarding your data.
-                            </p>
+                            <h2>{t('privacy.section1Title')}</h2>
+                            <p>{t('privacy.section1Content')}</p>
                         </section>
 
+                        {/* Section 2: Information We Collect */}
                         <section className="policy-section">
-                            <h2>2. Information We Collect</h2>
+                            <h2>{t('privacy.section2Title')}</h2>
 
-                            <h3>Log Files</h3>
-                            <p>
-                                Like most websites, we collect information that your browser sends whenever you visit.
-                                This may include:
-                            </p>
+                            <h3>{t('privacy.section2Subtitle1')}</h3>
+                            <p>{t('privacy.section2Content1')}</p>
                             <ul>
-                                <li>IP address</li>
-                                <li>Browser type and version</li>
-                                <li>Pages visited and time spent</li>
-                                <li>Referring website (if any)</li>
+                                <li>{t('privacy.section2List1')}</li>
+                                <li>{t('privacy.section2List2')}</li>
+                                <li>{t('privacy.section2List3')}</li>
+                                <li>{t('privacy.section2List4')}</li>
                             </ul>
-                            <p>
-                                This data is collected automatically through Google Analytics to help us understand
-                                how users interact with our tool and improve the user experience.
-                            </p>
+                            <p>{t('privacy.section2Content2')}</p>
 
-                            <h3>Local Storage</h3>
-                            <p>
-                                We use browser local storage to save your preferences (such as base font size and
-                                unit selections) to improve your experience. This data is stored <strong>locally on
-                                    your device</strong> and is not transmitted to our servers or shared with third parties.
-                            </p>
+                            <h3>{t('privacy.section2Subtitle2')}</h3>
+                            <p>{t('privacy.section2Content3')}</p>
                         </section>
 
+                        {/* Section 3: Third-Party Services */}
                         <section className="policy-section">
-                            <h2>3. Third-Party Services</h2>
+                            <h2>{t('privacy.section3Title')}</h2>
 
-                            <h3>Google Fonts</h3>
-                            <p>
-                                We use Google Fonts to provide the live typography preview feature. When you use this
-                                tool, your browser may connect directly to Google servers to load font files. Google
-                                may collect technical data about your connection as described in their
-                                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
-                                    {" "}Privacy Policy
-                                </a>.
-                            </p>
+                            <h3>{t('privacy.section3Subtitle1')}</h3>
+                            <p>{t('privacy.section3Content1')}</p>
 
-                            <h3>Google Analytics</h3>
-                            <p>
-                                We use Google Analytics to analyze website usage and improve our service. Google
-                                Analytics collects anonymized data about your visit. You can opt out of Google
-                                Analytics tracking by installing the
-                                <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">
-                                    {" "}Google Analytics Opt-out Browser Add-on
-                                </a>.
-                            </p>
+                            <h3>{t('privacy.section3Subtitle2')}</h3>
+                            <p>{t('privacy.section3Content2')}</p>
                         </section>
 
+                        {/* Section 4: How We Use Your Information */}
                         <section className="policy-section">
-                            <h2>4. How We Use Your Information</h2>
-                            <p>We use the collected information to:</p>
+                            <h2>{t('privacy.section4Title')}</h2>
+                            <p>{t('privacy.section4Content')}</p>
                             <ul>
-                                <li>Provide and maintain our tool</li>
-                                <li>Understand how users interact with our website</li>
-                                <li>Improve user experience and functionality</li>
-                                <li>Monitor website performance and security</li>
+                                <li>{t('privacy.section4List1')}</li>
+                                <li>{t('privacy.section4List2')}</li>
+                                <li>{t('privacy.section4List3')}</li>
+                                <li>{t('privacy.section4List4')}</li>
                             </ul>
                         </section>
 
+                        {/* Section 5: Data Retention */}
                         <section className="policy-section">
-                            <h2>5. Data Retention</h2>
+                            <h2>{t('privacy.section5Title')}</h2>
                             <ul>
-                                <li>
-                                    <strong>Log files and Analytics:</strong> Retained for 14 months
-                                    (Google Analytics default)
-                                </li>
-                                <li>
-                                    <strong>Local storage data:</strong> Stored indefinitely on your device
-                                    until you clear your browser cache
-                                </li>
-                                <li>
-                                    <strong>No personal data is stored on our servers</strong>
-                                </li>
+                                <li>{t('privacy.section5List1')}</li>
+                                <li>{t('privacy.section5List2')}</li>
+                                <li>{t('privacy.section5List3')}</li>
                             </ul>
                         </section>
 
+                        {/* Section 6: Your Rights (GDPR) */}
                         <section className="policy-section">
-                            <h2>6. Your Rights (GDPR Compliance)</h2>
-                            <p>
-                                If you are located in the European Economic Area (EEA), you have the following rights:
-                            </p>
+                            <h2>{t('privacy.section6Title')}</h2>
+                            <p>{t('privacy.section6Content')}</p>
                             <ul>
-                                <li>Access to your personal data</li>
-                                <li>Correction of inaccurate data</li>
-                                <li>Deletion of your data</li>
-                                <li>Restriction of processing</li>
-                                <li>Data portability</li>
-                                <li>Object to processing</li>
+                                <li>{t('privacy.section6List1')}</li>
+                                <li>{t('privacy.section6List2')}</li>
+                                <li>{t('privacy.section6List3')}</li>
+                                <li>{t('privacy.section6List4')}</li>
+                                <li>{t('privacy.section6List5')}</li>
+                                <li>{t('privacy.section6List6')}</li>
                             </ul>
-                            <p>
-                                To exercise these rights, please contact us at {contactEmail}.
-                            </p>
+                            <p>{t('privacy.section6Content2')}</p>
                         </section>
 
+                        {/* Section 7: Children's Privacy */}
                         <section className="policy-section">
-                            <h2>7. Children's Privacy</h2>
-                            <p>
-                                Our tool is not intended for children under the age of 13. We do not knowingly
-                                collect personal information from children under 13. If you believe we have
-                                collected such information, please contact us immediately.
-                            </p>
+                            <h2>{t('privacy.section7Title')}</h2>
+                            <p>{t('privacy.section7Content')}</p>
                         </section>
 
+                        {/* Section 8: Changes to Policy */}
                         <section className="policy-section">
-                            <h2>8. Changes to This Privacy Policy</h2>
-                            <p>
-                                We may update this Privacy Policy from time to time. We will notify you of any
-                                changes by posting the new Privacy Policy on this page and updating the
-                                "Last Updated" date.
-                            </p>
+                            <h2>{t('privacy.section8Title')}</h2>
+                            <p>{t('privacy.section8Content')}</p>
                         </section>
 
+                        {/* Section 9: Contact Us */}
                         <section className="policy-section">
-                            <h2>9. Contact Us</h2>
-                            <p>
-                                If you have any questions about this Privacy Policy, please contact us at:
-                            </p>
+                            <h2>{t('privacy.section9Title')}</h2>
+                            <p>{t('privacy.section9Content')}</p>
                             <div className="contact-info">
-                                <p><strong>Email:</strong> {contactEmail}</p>
-                                <p><strong>Website:</strong> {websiteUrl}/contact</p>
+                                <p><strong>{t('privacy.contactEmail')}:</strong> {contactEmail}</p>
+                                <p><strong>{t('privacy.contactWebsite')}:</strong> {websiteUrl}/contact</p>
                             </div>
                         </section>
                     </div>
