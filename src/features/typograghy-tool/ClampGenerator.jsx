@@ -162,7 +162,6 @@ const ClampGenerator = ({ onClampChange }) => {
             {/* Mensaje de Error - TRADUCIDO (si agregas la key al JSON) */}
             {error && (
                 <div className="clamp-error">
-                    <span className="error-icon">⚠️</span>
                     <span className="error-message">{error}</span>
                 </div>
             )}

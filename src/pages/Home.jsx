@@ -108,11 +108,7 @@ const Home = () => {
                             <div className="step-card">
                                 <div className="step-number">01</div>
                                 <div className="step-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                        <path d="M7 7h10v10H7z" />
-                                        <path d="M7 17l-4-4 4-4" />
-                                        <path d="M17 7l4 4-4 4" />
-                                    </svg>
+                                   {/* Ícono de conversión (puedes usar cualquier SVG) */}
                                 </div>
                                 <h3 className="step-title">{t('home.step1Title')}</h3>
                                 <p className="step-description">{t('home.step1Desc')}</p>
@@ -128,9 +124,7 @@ const Home = () => {
                             <div className="step-card">
                                 <div className="step-number">02</div>
                                 <div className="step-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                        <path d="M4 6h16M4 12h16M4 18h16" />
-                                    </svg>
+                                    {/* Ícono de generación (puedes usar cualquier SVG) */}
                                 </div>
                                 <h3 className="step-title">{t('home.step2Title')}</h3>
                                 <p className="step-description">{t('home.step2Desc')}</p>
@@ -146,10 +140,7 @@ const Home = () => {
                             <div className="step-card">
                                 <div className="step-number">03</div>
                                 <div className="step-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                                        <circle cx="12" cy="12" r="3" />
-                                    </svg>
+                                    {/* Ícono de vista previa (puedes usar cualquier SVG) */}
                                 </div>
                                 <h3 className="step-title">{t('home.step3Title')}</h3>
                                 <p className="step-description">{t('home.step3Desc')}</p>

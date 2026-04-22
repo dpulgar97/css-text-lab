@@ -74,7 +74,6 @@
   font-weight: 600;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
   margin: 0 0 1rem 0;
 }
 
@@ -107,10 +106,9 @@
   .island-container {
     width: 100%;
     margin: 0;
-    border-radius: 0;
     border-left: none;
     border-right: none;
-    padding: 1rem;
+    padding: 1.6em;
   }
 
   .island-title {
