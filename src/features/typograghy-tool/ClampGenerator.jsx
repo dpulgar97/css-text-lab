@@ -36,7 +36,19 @@ const ClampGenerator = ({ onClampChange }) => {
         if (!clampResult) return;
 
         try {
-            await navigator.clipboard.writeText(`font-size: ${clampResult.full};`);
+            const textToCopy = `font-size: ${clampResult.full};`;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                await navigator.clipboard.writeText(textToCopy);
+            } else {
+                const textarea = document.createElement('textarea');
+                textarea.value = textToCopy;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+            }
             setIsCopied(true);
             setTimeout(() => setIsCopied(false), 2000);
         } catch (err) {
@@ -58,16 +70,15 @@ const ClampGenerator = ({ onClampChange }) => {
                     </label>
                     <div className="input-with-unit">
                         <input
-                            type="number"
+                            type="text"
                             id="viewportMin"
                             value={viewportMin}
                             onChange={handleViewportMinChange}
                             className="input-field"
-                            min="0"
-                            step="10"
+                            placeholder="0"
+                            inputMode="numeric"
                             lang="en-US"
                         />
-                        {/* La unidad (px) NO se traduce */}
                         <span className="input-unit">{viewportUnit}</span>
                     </div>
                 </div>
@@ -79,13 +90,13 @@ const ClampGenerator = ({ onClampChange }) => {
                     </label>
                     <div className="input-with-unit">
                         <input
-                            type="number"
+                            type="text"
                             id="viewportMax"
                             value={viewportMax}
                             onChange={handleViewportMaxChange}
                             className="input-field"
-                            min="0"
-                            step="10"
+                            placeholder="0"
+                            inputMode="numeric"
                             lang="en-US"
                         />
                         <span className="input-unit">{viewportUnit}</span>

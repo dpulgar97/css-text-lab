@@ -3,9 +3,9 @@ import { useState, useEffect, useCallback } from "react";
 import { calculateClamp, FONT_UNITS } from "../utils/clamp";
 
 export const useClamp = () => {
-  // Viewport (enteros, pueden ser number)
-  const [viewportMin, setViewportMin] = useState(600);
-  const [viewportMax, setViewportMax] = useState(1400);
+  // Viewport (strings para permitir vacío y mostrar placeholder)
+  const [viewportMin, setViewportMin] = useState("600");
+  const [viewportMax, setViewportMax] = useState("1400");
   const [viewportUnit, setViewportUnit] = useState("px");
 
   // Font Size (strings para permitir vacío temporalmente)
@@ -19,18 +19,21 @@ export const useClamp = () => {
 
   // Calcular clamp cuando cambian los valores
   const calculate = useCallback(() => {
-    // Convertir strings a números para el cálculo (si están vacíos, usar 0)
     const min = fontSizeMin === "" ? 0 : parseFloat(fontSizeMin);
     const max = fontSizeMax === "" ? 0 : parseFloat(fontSizeMax);
 
-    // Validar que sean números válidos
     if (isNaN(min) || isNaN(max)) {
       setError("Invalid font size values");
       setClampResult(null);
       return;
     }
 
-    const result = calculateClamp(viewportMin, viewportMax, min, max, fontUnit);
+    const vpMin = viewportMin === "" ? 0 : parseFloat(viewportMin);
+    const vpMax = viewportMax === "" ? 0 : parseFloat(viewportMax);
+    const vpMinFinal = isNaN(vpMin) ? 0 : vpMin;
+    const vpMaxFinal = isNaN(vpMax) ? 0 : vpMax;
+
+    const result = calculateClamp(vpMinFinal, vpMaxFinal, min, max, fontUnit);
 
     if (result.error) {
       setError(result.error);
@@ -47,13 +50,17 @@ export const useClamp = () => {
 
   // Handlers para Viewport (enteros, se mantienen como number)
   const handleViewportMinChange = (e) => {
-    const value = parseInt(e.target.value);
-    setViewportMin(isNaN(value) ? 0 : value);
+    const value = e.target.value;
+    if (value === "" || /^\d*$/.test(value)) {
+      setViewportMin(value);
+    }
   };
 
   const handleViewportMaxChange = (e) => {
-    const value = parseInt(e.target.value);
-    setViewportMax(isNaN(value) ? 0 : value);
+    const value = e.target.value;
+    if (value === "" || /^\d*$/.test(value)) {
+      setViewportMax(value);
+    }
   };
 
   // Handlers para Font Size (strings con validación manual)
