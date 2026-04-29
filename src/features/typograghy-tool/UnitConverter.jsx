@@ -10,8 +10,6 @@ const UnitConverter = () => {
     inputValue,
     fromUnit,
     toUnit,
-    baseFontSize,
-    tempBaseFontSize,
     viewportSize,
     result,
     units,
@@ -19,11 +17,6 @@ const UnitConverter = () => {
     handleFromUnitChange,
     handleToUnitChange,
     handleViewportSizeChange,
-    toggleBaseFontSizeEdit,
-    handleTempBaseFontSizeChange,
-    cancelBaseFontSizeEdit,
-    saveBaseFontSize,
-    isBaseFontSizeEditable,
     needsViewportInput,
     viewportLabel,
     toast,
@@ -40,12 +33,6 @@ const UnitConverter = () => {
       setTimeout(() => setIsCopied(false), 2000);
     } catch (err) {
       console.error('Failed to copy:', err);
-    }
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
-      saveBaseFontSize();
     }
   };
 
@@ -127,86 +114,25 @@ const UnitConverter = () => {
               <span className="input-hint">Required for vh/vw calculations</span>
             </label>
             <input
-              type="number"
+              type="text"
               id="viewportSize"
               value={viewportSize}
               onChange={handleViewportSizeChange}
               className="input-field"
-              min="100"
-              step="10"
+              placeholder="0"
+              inputMode="decimal"
               lang="en-US"
             />
           </div>
         </div>
       )}
 
-      {/* Base font size con toggle */}
+      {/* Base font size - Fixed default */}
       <div className="converter-row">
         <div className="input-group full-width">
-          <div className="base-font-header">
-            <label className="input-label">
-              {/* "Base Font Size (px)" - TRADUCIDO */}
-              {t('tool.unitConverter.baseFontSize')}
-              {/* Hint - TRADUCIDO */}
-              <span className="input-hint">{t('tool.unitConverter.baseFontSizeHint')}</span>
-            </label>
-
-            {/* Botón toggle - TRADUCIDO */}
-            <button
-              type="button"
-              onClick={toggleBaseFontSizeEdit}
-              className={`toggle-btn ${isBaseFontSizeEditable ? 'active' : ''}`}
-              aria-label={isBaseFontSizeEditable ? t('tool.unitConverter.save') : t('tool.unitConverter.edit')}
-            >
-              {isBaseFontSizeEditable ? (
-                <>
-                  <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>{t('tool.unitConverter.save')}</span>
-                </>
-              ) : (
-                <>
-                  <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
-                    <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
-                  </svg>
-                  <span>{t('tool.unitConverter.edit')}</span>
-                </>
-              )}
-            </button>
+          <div className="base-font-info">
+            <span className="base-font-info-text">{t('tool.unitConverter.baseFontSizeDefault')}</span>
           </div>
-
-          {isBaseFontSizeEditable ? (
-            <div className="base-font-edit-row">
-              <input
-                type="text"
-                value={tempBaseFontSize}
-                onChange={handleTempBaseFontSizeChange}
-                onKeyDown={handleKeyDown}
-                className="input-field editable"
-                autoFocus
-                placeholder="Enter value..."
-                inputMode="decimal"
-                lang="en-US"
-              />
-              {/* Botón Cancel - TRADUCIDO */}
-              <button
-                type="button"
-                onClick={cancelBaseFontSizeEdit}
-                className="cancel-btn"
-              >
-                {t('tool.unitConverter.cancel')}
-              </button>
-            </div>
-          ) : (
-            <div className="base-font-display">
-              {/* El valor numérico (16px) NO se traduce */}
-              <span className="display-value">{baseFontSize}px</span>
-              {/* Hint - TRADUCIDO */}
-              <span className="display-hint">{t('tool.unitConverter.baseFontSizeHint')}</span>
-            </div>
-          )}
         </div>
       </div>
 

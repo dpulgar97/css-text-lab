@@ -10,20 +10,14 @@ import {
 
 export const useConverter = () => {
   // ... (estados anteriores: inputValue, fromUnit, toUnit, baseFontSize, result, etc.)
-  const [inputValue, setInputValue] = useState(16);
+  const [inputValue, setInputValue] = useState("16");
   const [fromUnit, setFromUnit] = useState("px");
   const [toUnit, setToUnit] = useState("rem");
   const [baseFontSize, setBaseFontSize] = useState(DEFAULT_BASE_FONT_SIZE);
   const [result, setResult] = useState(0);
 
-  // Nuevo estado para viewport
-  const [viewportSize, setViewportSize] = useState(DEFAULT_VIEWPORT_SIZE);
+  const [viewportSize, setViewportSize] = useState("");
 
-  // ... (estados de edición y toast)
-  const [isBaseFontSizeEditable, setIsBaseFontSizeEditable] = useState(false);
-  const [tempBaseFontSize, setTempBaseFontSize] = useState(
-    DEFAULT_BASE_FONT_SIZE.toString(),
-  );
   const [toast, setToast] = useState({
     show: false,
     message: "",
@@ -48,12 +42,14 @@ export const useConverter = () => {
   }, [fromUnit, toUnit]);
 
   const calculate = useCallback(() => {
+    const value = inputValue === "" ? 0 : parseFloat(inputValue);
+    const vp = viewportSize === "" ? 0 : parseFloat(viewportSize);
     const converted = convertUnit(
-      inputValue,
+      isNaN(value) ? 0 : value,
       fromUnit,
       toUnit,
       baseFontSize,
-      viewportSize,
+      isNaN(vp) ? DEFAULT_VIEWPORT_SIZE : vp,
     );
     setResult(formatResult(converted));
   }, [inputValue, fromUnit, toUnit, baseFontSize, viewportSize]);
@@ -64,8 +60,10 @@ export const useConverter = () => {
 
   // ... (handlers anteriores: handleInputChange, handleFromUnitChange, handleToUnitChange, etc.)
   const handleInputChange = (e) => {
-    const value = parseFloat(e.target.value);
-    setInputValue(isNaN(value) ? 0 : value);
+    const value = e.target.value;
+    if (value === "" || /^(\d+\.?\d*|\.\d*)$/.test(value)) {
+      setInputValue(value);
+    }
   };
 
   const handleFromUnitChange = (e) => setFromUnit(e.target.value);
@@ -73,46 +71,7 @@ export const useConverter = () => {
 
   // Nuevo handler para viewport
   const handleViewportSizeChange = (e) => {
-    const value = parseFloat(e.target.value);
-    setViewportSize(isNaN(value) ? DEFAULT_VIEWPORT_SIZE : value);
-  };
-
-  // ... (resto de funciones: toggleBaseFontSizeEdit, saveBaseFontSize, cancelBaseFontSizeEdit, showToast)
-  const toggleBaseFontSizeEdit = () => {
-    if (isBaseFontSizeEditable) {
-      saveBaseFontSize();
-    } else {
-      setTempBaseFontSize(baseFontSize.toString());
-      setIsBaseFontSizeEditable(true);
-    }
-  };
-
-  const handleTempBaseFontSizeChange = (e) => {
-    setTempBaseFontSize(e.target.value);
-  };
-
-  const saveBaseFontSize = () => {
-    const trimmed = tempBaseFontSize.trim();
-    if (trimmed === "" || isNaN(parseFloat(trimmed))) {
-      showToast("Base font size cannot be empty", "error");
-      return;
-    }
-    const value = parseFloat(trimmed);
-    if (value < 8) {
-      showToast("Minimum value is 8px", "error");
-      return;
-    }
-    if (value > 100) {
-      showToast("Maximum value is 100px", "error");
-      return;
-    }
-    setBaseFontSize(value);
-    setIsBaseFontSizeEditable(false);
-  };
-
-  const cancelBaseFontSizeEdit = () => {
-    setTempBaseFontSize(baseFontSize.toString());
-    setIsBaseFontSizeEditable(false);
+    setViewportSize(e.target.value);
   };
 
   const showToast = (message, type = "error") => {
@@ -127,11 +86,9 @@ export const useConverter = () => {
     fromUnit,
     toUnit,
     baseFontSize,
-    tempBaseFontSize,
     viewportSize,
     result,
     units: UNITS,
-    isBaseFontSizeEditable,
     needsViewportInput,
     viewportLabel,
     toast,
@@ -139,10 +96,6 @@ export const useConverter = () => {
     handleFromUnitChange,
     handleToUnitChange,
     handleViewportSizeChange,
-    toggleBaseFontSizeEdit,
-    handleTempBaseFontSizeChange,
-    cancelBaseFontSizeEdit,
-    saveBaseFontSize,
     hideToast: () => setToast({ ...toast, show: false }),
   };
 };
