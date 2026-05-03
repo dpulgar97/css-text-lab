@@ -3,7 +3,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import Header from '../components/layout/Navbar';
+import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import './PrivacyPolicy.css';
 
@@ -25,7 +25,7 @@ const PrivacyPolicy = () => {
                 <link rel="canonical" href={`${websiteUrl}/${currentLang}/privacy`} />
             </Helmet>
 
-            <Header />
+            <Navbar />
 
             <main className="privacy-page">
                 <div className="container">

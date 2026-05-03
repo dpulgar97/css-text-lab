@@ -2,7 +2,8 @@
 
 // Base font size por defecto (puede ser personalizado por el usuario)
 export const DEFAULT_BASE_FONT_SIZE = 16;
-export const DEFAULT_VIEWPORT_SIZE = 1920; // Solo como fallback
+export const DEFAULT_VIEWPORT_WIDTH = 1920;
+export const DEFAULT_VIEWPORT_HEIGHT = 1080;
 
 export const UNITS = [
   { value: 'px', label: 'Pixels (px)' },
@@ -19,7 +20,8 @@ export const UNITS = [
  * @param {string} fromUnit - Unidad de origen
  * @param {string} toUnit - Unidad de destino
  * @param {number} baseFontSize - Tamaño base de fuente (para rem/em)
- * @param {number} viewportSize - Tamaño del viewport (para vh/vw, en px)
+ * @param {number} viewportWidth - Ancho del viewport (para vw, en px)
+ * @param {number} viewportHeight - Alto del viewport (para vh, en px)
  * @returns {number} - El valor convertido
  */
 export const convertUnit = (
@@ -27,21 +29,22 @@ export const convertUnit = (
   fromUnit,
   toUnit,
   baseFontSize = DEFAULT_BASE_FONT_SIZE,
-  viewportSize = 1920, 
+  viewportWidth = DEFAULT_VIEWPORT_WIDTH,
+  viewportHeight = DEFAULT_VIEWPORT_HEIGHT,
 ) => {
   if (fromUnit === toUnit) return value;
 
   // Primero convertimos todo a px como unidad base intermedia
-  const valueInPx = toPixels(value, fromUnit, baseFontSize, viewportSize);
+  const valueInPx = toPixels(value, fromUnit, baseFontSize, viewportWidth, viewportHeight);
 
   // Luego convertimos de px a la unidad destino
-  return fromPixels(valueInPx, toUnit, baseFontSize, viewportSize);
+  return fromPixels(valueInPx, toUnit, baseFontSize, viewportWidth, viewportHeight);
 };
 
 /**
  * Convierte cualquier unidad a pixels
  */
-const toPixels = (value, unit, baseFontSize, viewportSize) => {
+const toPixels = (value, unit, baseFontSize, viewportWidth, viewportHeight) => {
   switch (unit) {
     case "px":
       return value;
@@ -49,11 +52,11 @@ const toPixels = (value, unit, baseFontSize, viewportSize) => {
     case "em":
       return value * baseFontSize;
     case "pt":
-      return value * 1.333333; // 1pt = 1.333px
+      return value * (4 / 3); // 1pt = 4/3 px (exact CSS value)
     case "vh":
-      return (value / 100) * viewportSize; // Asumimos viewport cuadrado para simplificar
+      return (value / 100) * viewportHeight;
     case "vw":
-      return (value / 100) * viewportSize;
+      return (value / 100) * viewportWidth;
     default:
       return value;
   }
@@ -62,7 +65,7 @@ const toPixels = (value, unit, baseFontSize, viewportSize) => {
 /**
  * Convierte desde pixels a cualquier unidad
  */
-const fromPixels = (valueInPx, unit, baseFontSize, viewportSize) => {
+const fromPixels = (valueInPx, unit, baseFontSize, viewportWidth, viewportHeight) => {
   switch (unit) {
     case "px":
       return valueInPx;
@@ -70,11 +73,11 @@ const fromPixels = (valueInPx, unit, baseFontSize, viewportSize) => {
     case "em":
       return valueInPx / baseFontSize;
     case "pt":
-      return valueInPx / 1.333333;
+      return valueInPx / (4 / 3);
     case "vh":
-      return (valueInPx / viewportSize) * 100;
+      return (valueInPx / viewportHeight) * 100;
     case "vw":
-      return (valueInPx / viewportSize) * 100;
+      return (valueInPx / viewportWidth) * 100;
     default:
       return valueInPx;
   }

@@ -10,13 +10,15 @@ const UnitConverter = () => {
     inputValue,
     fromUnit,
     toUnit,
-    viewportSize,
+    viewportWidth,
+    viewportHeight,
     result,
     units,
     handleInputChange,
     handleFromUnitChange,
     handleToUnitChange,
-    handleViewportSizeChange,
+    handleViewportWidthChange,
+    handleViewportHeightChange,
     needsViewportInput,
     viewportLabel,
     toast,
@@ -119,22 +121,42 @@ const UnitConverter = () => {
       {/* Input condicional de Viewport */}
       {needsViewportInput && (
         <div className="converter-row">
-          <div className="input-group full-width">
-            <label htmlFor="viewportSize" className="input-label">
-              {viewportLabel}
-              <span className="input-hint">Required for vh/vw calculations</span>
-            </label>
-            <input
-              type="text"
-              id="viewportSize"
-              value={viewportSize}
-              onChange={handleViewportSizeChange}
-              className="input-field"
-              placeholder="0"
-              inputMode="decimal"
-              lang="en-US"
-            />
-          </div>
+          {fromUnit === "vw" || toUnit === "vw" ? (
+            <div className="input-group full-width">
+              <label htmlFor="viewportWidth" className="input-label">
+                {viewportLabel}
+                <span className="input-hint">Required for vw calculations</span>
+              </label>
+              <input
+                type="text"
+                id="viewportWidth"
+                value={viewportWidth}
+                onChange={handleViewportWidthChange}
+                className="input-field"
+                placeholder="0"
+                inputMode="decimal"
+                lang="en-US"
+              />
+            </div>
+          ) : null}
+          {fromUnit === "vh" || toUnit === "vh" ? (
+            <div className="input-group full-width">
+              <label htmlFor="viewportHeight" className="input-label">
+                {viewportLabel}
+                <span className="input-hint">Required for vh calculations</span>
+              </label>
+              <input
+                type="text"
+                id="viewportHeight"
+                value={viewportHeight}
+                onChange={handleViewportHeightChange}
+                className="input-field"
+                placeholder="0"
+                inputMode="decimal"
+                lang="en-US"
+              />
+            </div>
+          ) : null}
         </div>
       )}
 

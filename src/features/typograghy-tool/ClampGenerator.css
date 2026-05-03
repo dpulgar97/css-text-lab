@@ -127,14 +127,13 @@
 
 .clamp-error {
     background-color: rgba(239, 68, 68, 0.1);
-    border: 1px solid var(--error);
     border-radius: var(--radius-md);
     padding: 0.75rem 1rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
     color: var(--error);
-    font-size: 0.85rem;
+    font-size: clamp(0.9rem, 0.825rem + 0.0125vw, 1rem);
 }
 
 .error-icon {

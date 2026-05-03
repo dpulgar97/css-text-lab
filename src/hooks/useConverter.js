@@ -5,7 +5,8 @@ import {
   formatResult,
   UNITS,
   DEFAULT_BASE_FONT_SIZE,
-  DEFAULT_VIEWPORT_SIZE,
+  DEFAULT_VIEWPORT_WIDTH,
+  DEFAULT_VIEWPORT_HEIGHT,
 } from "../utils/convertions";
 
 export const useConverter = () => {
@@ -16,7 +17,8 @@ export const useConverter = () => {
   const [baseFontSize, setBaseFontSize] = useState(DEFAULT_BASE_FONT_SIZE);
   const [result, setResult] = useState(0);
 
-  const [viewportSize, setViewportSize] = useState("");
+  const [viewportWidth, setViewportWidth] = useState("");
+  const [viewportHeight, setViewportHeight] = useState("");
 
   const [toast, setToast] = useState({
     show: false,
@@ -43,16 +45,18 @@ export const useConverter = () => {
 
   const calculate = useCallback(() => {
     const value = inputValue === "" ? 0 : parseFloat(inputValue);
-    const vp = viewportSize === "" ? 0 : parseFloat(viewportSize);
+    const vw = viewportWidth === "" ? DEFAULT_VIEWPORT_WIDTH : parseFloat(viewportWidth);
+    const vh = viewportHeight === "" ? DEFAULT_VIEWPORT_HEIGHT : parseFloat(viewportHeight);
     const converted = convertUnit(
       isNaN(value) ? 0 : value,
       fromUnit,
       toUnit,
       baseFontSize,
-      isNaN(vp) ? DEFAULT_VIEWPORT_SIZE : vp,
+      isNaN(vw) ? DEFAULT_VIEWPORT_WIDTH : vw,
+      isNaN(vh) ? DEFAULT_VIEWPORT_HEIGHT : vh,
     );
     setResult(formatResult(converted));
-  }, [inputValue, fromUnit, toUnit, baseFontSize, viewportSize]);
+  }, [inputValue, fromUnit, toUnit, baseFontSize, viewportWidth, viewportHeight]);
 
   useEffect(() => {
     calculate();
@@ -69,9 +73,12 @@ export const useConverter = () => {
   const handleFromUnitChange = (e) => setFromUnit(e.target.value);
   const handleToUnitChange = (e) => setToUnit(e.target.value);
 
-  // Nuevo handler para viewport
-  const handleViewportSizeChange = (e) => {
-    setViewportSize(e.target.value);
+  // Nuevos handlers para viewport
+  const handleViewportWidthChange = (e) => {
+    setViewportWidth(e.target.value);
+  };
+  const handleViewportHeightChange = (e) => {
+    setViewportHeight(e.target.value);
   };
 
   const showToast = (message, type = "error") => {
@@ -86,7 +93,8 @@ export const useConverter = () => {
     fromUnit,
     toUnit,
     baseFontSize,
-    viewportSize,
+    viewportWidth,
+    viewportHeight,
     result,
     units: UNITS,
     needsViewportInput,
@@ -95,7 +103,8 @@ export const useConverter = () => {
     handleInputChange,
     handleFromUnitChange,
     handleToUnitChange,
-    handleViewportSizeChange,
+    handleViewportWidthChange,
+    handleViewportHeightChange,
     hideToast: () => setToast({ ...toast, show: false }),
   };
 };

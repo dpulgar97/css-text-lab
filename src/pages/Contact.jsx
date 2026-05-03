@@ -3,7 +3,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom'; // ← Agregar este import
 import { Helmet } from 'react-helmet-async';
-import Header from '../components/layout/Navbar';
+import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import './Contact.css';
 
@@ -24,7 +24,7 @@ const Contact = () => {
                 <link rel="canonical" href={`${websiteUrl}/${currentLang}/contact`} />
             </Helmet>
 
-            <Header />
+            <Navbar />
 
             <main className="contact-page">
                 <div className="container">
