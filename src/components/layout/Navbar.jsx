@@ -84,7 +84,7 @@ const Navbar = () => {
         </button>
       </div>
 
-      {menuOpen && <div className="nav-overlay" onClick={closeMenu} />}
+      {menuOpen && <div className="nav-overlay active" onClick={closeMenu} />}
     </header>
   );
 };
