@@ -20,8 +20,23 @@ const Navbar = () => {
   const closeMenu = () => setMenuOpen(false);
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.top = '0';
+      document.body.style.width = '100%';
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+    };
   }, [menuOpen]);
 
   useEffect(() => {
@@ -47,14 +62,6 @@ const Navbar = () => {
         </Link>
 
         <nav className={`main-nav ${menuOpen ? 'open' : ''}`}>
-          <button
-            className="mobile-close"
-            onClick={closeMenu}
-            aria-label="Close menu"
-          >
-            <X size={24} />
-          </button>
-
           <Link
             to={`/${lang || 'en'}`}
             className={`nav-link ${isActive('/') ? 'active' : ''}`}
@@ -75,12 +82,20 @@ const Navbar = () => {
         </nav>
 
         <button
-          className="menu-toggle"
+          className={`menu-toggle ${menuOpen ? 'hidden' : ''}`}
           onClick={toggleMenu}
           aria-label="Open menu"
           aria-expanded={menuOpen}
         >
           <Menu size={24} />
+        </button>
+
+        <button
+          className={`mobile-close-header ${menuOpen ? 'visible' : ''}`}
+          onClick={closeMenu}
+          aria-label="Close menu"
+        >
+          <X size={24} />
         </button>
       </div>
 
