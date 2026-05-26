@@ -14,8 +14,8 @@
   --text-muted: #9CA3AF;
 
   /* Accents */
-  --primary: #6366F1;
-  --primary-hover: #4F46E5;
+  --primary: #F3F4F6;
+  --primary-hover: #3A3A3A;
   --success: #10B981;
   --error: #EF4444;
 
@@ -28,8 +28,7 @@
 body {
   background-color: var(--bg-body);
   color: var(--text-main);
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  /* Recomendado para devs */
+  font-family: "Space Grotesk", sans-serif;
   margin: 0;
   padding: 0;
   line-height: 1.5;

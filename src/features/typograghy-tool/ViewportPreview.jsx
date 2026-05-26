@@ -72,7 +72,6 @@ const ViewportPreview = ({ clampValue, fontUnit }) => {
 
             {/* Nota informativa - TRADUCIDA con HTML para el <code> */}
             <div className="preview-note">
-                <span className="note-icon">ℹ️</span>
                 <span
                     className="note-text"
                     dangerouslySetInnerHTML={{ __html: t('tool.viewportPreview.note') }}

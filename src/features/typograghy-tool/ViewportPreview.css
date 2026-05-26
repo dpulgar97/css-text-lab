@@ -89,14 +89,13 @@
 
 /* Nota para desarrolladores */
 .preview-note {
-    background-color: rgba(99, 102, 241, 0.1);
-    border: 1px solid var(--primary);
+    background-color: rgba(99, 101, 241, 0.182);
     border-radius: var(--radius-md);
     padding: 1rem 1.25rem;
     display: flex;
     align-items: flex-start;
     gap: 0.75rem;
-    font-size: 0.85rem;
+    font-size: clamp(0.7rem, 0.5875rem + 0.0188vw, 0.85rem);
     color: var(--text-muted);
 }
 
