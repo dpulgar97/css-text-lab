@@ -70,6 +70,13 @@ const Navbar = () => {
             {t('nav.tool')}
           </Link>
           <Link
+            to={`/${lang || 'en'}/blog`}
+            className={`nav-link ${isActive('/blog') ? 'active' : ''}`}
+            onClick={closeMenu}
+          >
+            {t('nav.blog')}
+          </Link>
+          <Link
             to={`/${lang || 'en'}/contact`}
             className={`nav-link ${isActive('/contact') ? 'active' : ''}`}
             onClick={closeMenu}

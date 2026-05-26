@@ -168,6 +168,14 @@
     }
   },
 
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Artigos, guias e melhores práticas sobre tipografia CSS e design responsivo.",
+    "publishedOn": "Publicado em",
+    "readArticle": "Ler Artigo",
+    "backToBlog": "← Voltar ao Blog",
+    "tableOfContents": "Índice"
+  },
   "faq": {
     "title": "Perguntas Frequentes",
     "subtitle": "Tudo o que você precisa saber sobre CSS clamp() e tipografia responsiva.",

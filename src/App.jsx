@@ -5,6 +5,8 @@ import LanguageRoute from './components/layout/LanguageRoute';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import Blog from './pages/Blog';
+import BlogArticle from './pages/BlogArticle';
 
 import './App.css';
 
@@ -54,10 +56,13 @@ function App() {
         <Route path="/:lang" element={<LanguageRoute><Home /></LanguageRoute>} />
         <Route path="/:lang/contact" element={<LanguageRoute><Contact /></LanguageRoute>} />
         <Route path="/:lang/privacy" element={<LanguageRoute><PrivacyPolicy /></LanguageRoute>} />
+        <Route path="/:lang/blog" element={<LanguageRoute><Blog /></LanguageRoute>} />
+        <Route path="/:lang/blog/:slug" element={<LanguageRoute><BlogArticle /></LanguageRoute>} />
 
         {/* Redirigir rutas sin idioma a /en */}
         <Route path="/contact" element={<Navigate to="/en/contact" replace />} />
         <Route path="/privacy" element={<Navigate to="/en/privacy" replace />} />
+        <Route path="/blog" element={<Navigate to="/en/blog" replace />} />
       </Routes>
     </Router>
   );

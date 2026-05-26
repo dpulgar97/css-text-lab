@@ -1,0 +1,326 @@
+/* ============================================ */
+/* Blog Page - Article Previews                 */
+/* ============================================ */
+.blog-page {
+  padding: 5rem 0;
+  min-height: 60vh;
+}
+
+.blog-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+}
+
+.blog-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0 0 1rem;
+}
+
+.blog-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ============================================ */
+/* Article Cards (Horizontal Layout)            */
+/* ============================================ */
+.articles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.article-card {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  gap: 1.75rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+  border-color: var(--border-focus);
+}
+
+/* Date badge (left column) */
+.article-card-date {
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 0.25rem;
+}
+
+.article-card-date time {
+  display: inline-block;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 0.875rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
+  text-align: center;
+  line-height: 1.4;
+  min-width: 90px;
+}
+
+/* Content (right column) */
+.article-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.article-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.article-card-title a {
+  color: var(--text-main);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.article-card-title a:hover {
+  color: var(--border-focus);
+}
+
+.article-card-preview {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.65;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.article-card-link {
+  align-self: flex-start;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--border-focus);
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+  margin-top: 0.25rem;
+}
+
+.article-card-link:hover {
+  color: var(--text-main);
+  transform: translateX(4px);
+}
+
+/* ============================================ */
+/* BlogArticle Page - Full Article              */
+/* ============================================ */
+.article-page {
+  padding: 4rem 0 6rem;
+  min-height: 60vh;
+}
+
+.article-back-link {
+  display: inline-block;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-bottom: 2rem;
+  transition: color 0.2s ease;
+}
+
+.article-back-link:hover {
+  color: var(--border-focus);
+}
+
+.article-full {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.article-header {
+  margin-bottom: 2.5rem;
+}
+
+.article-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0 0 1rem;
+  line-height: 1.25;
+}
+
+.article-meta {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.article-meta time {
+  font-weight: 500;
+}
+
+/* Table of Contents */
+.article-toc {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.article-toc-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin: 0 0 0.875rem;
+}
+
+.article-toc-list {
+  list-style: decimal;
+  margin: 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.article-toc-list li {
+  font-size: 0.925rem;
+}
+
+.article-toc-list a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.article-toc-list a:hover {
+  color: var(--border-focus);
+}
+
+/* Article body sections */
+.article-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.article-section {
+  scroll-margin-top: 6rem;
+}
+
+.article-section-title {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin: 0 0 1rem;
+  line-height: 1.4;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.article-section-text {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.8;
+}
+
+/* Article footer */
+.article-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.article-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 0.6rem 1.25rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.article-back-btn:hover {
+  background-color: var(--bg-input);
+  color: var(--text-main);
+  border-color: var(--text-muted);
+}
+
+/* ============================================ */
+/* Responsive                                   */
+/* ============================================ */
+@media (max-width: 768px) {
+  .blog-page {
+    padding: 3rem 0;
+  }
+
+  .blog-title {
+    font-size: 1.75rem;
+  }
+
+  .article-card {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+
+  .article-card-date time {
+    font-size: 0.75rem;
+    padding: 0.375rem 0.75rem;
+    min-width: auto;
+  }
+
+  .article-card-title {
+    font-size: 1.1rem;
+  }
+
+  .article-title {
+    font-size: 1.75rem;
+  }
+
+  .article-toc {
+    padding: 1.25rem;
+  }
+
+  .article-section-title {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-header {
+    margin-bottom: 2rem;
+  }
+
+  .articles-list {
+    gap: 1rem;
+  }
+
+  .article-card {
+    padding: 1rem;
+  }
+}
