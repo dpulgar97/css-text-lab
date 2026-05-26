@@ -4,11 +4,10 @@ import { useTranslation } from 'react-i18next';
 import { useViewportPreview } from '../../hooks/useViewportPreview';
 import './ViewportPreview.css';
 
-const ViewportPreview = ({ clampValue, fontUnit }) => {
+const ViewportPreview = ({ clampValue }) => {
     const { t } = useTranslation();
     const {
         selectedFont,
-        clampValue: currentClamp,
         fonts,
         previewStyle,
         handleFontChange,

@@ -51,7 +51,7 @@
 .article-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
-  border-color: var(--border-focus);
+  border-color: var(--text-main);
 }
 
 /* Date badge (left column) */
@@ -100,7 +100,7 @@
 }
 
 .article-card-title a:hover {
-  color: var(--border-focus);
+  color: var(--text-main);
 }
 
 .article-card-preview {
@@ -118,7 +118,7 @@
   align-self: flex-start;
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--border-focus);
+  color: var(--text-main);
   text-decoration: none;
   transition: color 0.2s ease, transform 0.2s ease;
   margin-top: 0.25rem;
@@ -147,7 +147,7 @@
 }
 
 .article-back-link:hover {
-  color: var(--border-focus);
+  color: var(--text-main);
 }
 
 .article-full {
@@ -212,7 +212,7 @@
 }
 
 .article-toc-list a:hover {
-  color: var(--border-focus);
+  color: var(--text-main);
 }
 
 /* Article body sections */

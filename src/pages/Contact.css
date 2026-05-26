@@ -139,12 +139,6 @@
     transition: color 0.2s ease;
 }
 
-.contact-info a:hover,
-.contact-faq-teaser a:hover {
-    color: var(--primary-hover);
-    text-decoration: underline;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
     .contact-page {

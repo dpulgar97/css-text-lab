@@ -10,7 +10,7 @@ import FAQ from '../components/FAQ';
 import './Home.css';
 
 const Home = () => {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
     const { lang } = useParams();
     const currentLang = lang || 'en';
     const websiteURL = 'https://tusioweb.com/';
