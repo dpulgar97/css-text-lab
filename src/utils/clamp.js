@@ -3,6 +3,23 @@ export const FONT_UNITS = [
   { value: "rem", label: "rem" },
 ];
 
+export const computeFontSizeAtViewport = (
+  viewportWidth,
+  viewportMin,
+  viewportMax,
+  fontSizeMin,
+  fontSizeMax,
+) => {
+  if (viewportMin >= viewportMax || fontSizeMin >= fontSizeMax) return fontSizeMin;
+  if (viewportWidth <= viewportMin) return fontSizeMin;
+  if (viewportWidth >= viewportMax) return fontSizeMax;
+
+  const slope = (fontSizeMax - fontSizeMin) / (viewportMax - viewportMin);
+  const intercept = fontSizeMin - slope * viewportMin;
+
+  return parseFloat((intercept + slope * viewportWidth).toFixed(2));
+};
+
 export const calculateClamp = (
   viewportMin,
   viewportMax,

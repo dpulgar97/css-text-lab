@@ -8,14 +8,18 @@ import { useTranslation } from 'react-i18next';
 import './Island.css';
 
 const Island = () => {
-  const [generatedClamp, setGeneratedClamp] = useState('');
-  const [fontUnit, setFontUnit] = useState('rem');
-  const {t} = useTranslation();
+  const [clampData, setClampData] = useState({
+    clampValue: '',
+    fontUnit: 'rem',
+    viewportMin: 600,
+    viewportMax: 1400,
+    fontSizeMin: 16,
+    fontSizeMax: 24,
+  });
+  const { t } = useTranslation();
 
-
-  const handleClampChange = useCallback((clamp, unit) => {
-    setGeneratedClamp(clamp);
-    setFontUnit(unit);
+  const handleClampChange = useCallback((data) => {
+    setClampData(data);
   }, []);
 
   return (
@@ -40,10 +44,7 @@ const Island = () => {
         </section>
 
         <section className="island-preview">
-          <ViewportPreview
-            clampValue={generatedClamp}
-            fontUnit={fontUnit}
-          />
+          <ViewportPreview clampData={clampData} />
         </section>
 
       </div>

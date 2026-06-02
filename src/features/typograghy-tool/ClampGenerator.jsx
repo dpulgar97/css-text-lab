@@ -28,9 +28,16 @@ const ClampGenerator = ({ onClampChange }) => {
     // Notificar al padre cuando cambia el clamp generado
     useEffect(() => {
         if (clampResult?.full && onClampChange) {
-            onClampChange(clampResult.full, fontUnit);
+            onClampChange({
+                clampValue: clampResult.full,
+                fontUnit,
+                viewportMin: parseFloat(viewportMin) || 600,
+                viewportMax: parseFloat(viewportMax) || 1400,
+                fontSizeMin: parseFloat(fontSizeMin) || 16,
+                fontSizeMax: parseFloat(fontSizeMax) || 24,
+            });
         }
-    }, [clampResult, fontUnit, onClampChange]);
+    }, [clampResult, fontUnit, viewportMin, viewportMax, fontSizeMin, fontSizeMax, onClampChange]);
 
     const handleCopy = async () => {
         if (!clampResult) return;

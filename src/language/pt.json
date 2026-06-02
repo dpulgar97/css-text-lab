@@ -164,6 +164,10 @@
     "viewportPreview": {
       "title": "Visualização Ao Vivo",
       "font": "Família da Fonte",
+      "viewportWidth": "Largura do Viewport",
+      "computedSize": "Tamanho Calculado",
+      "decrease": "Diminuir largura do viewport",
+      "increase": "Aumentar largura do viewport",
       "note": "Nota: A unidade <code>vw</code> é relativa ao viewport do seu navegador. Para testes responsivos precisos, use esta visualização para verificar a aparência tipográfica, e o Chrome DevTools para testar diferentes tamanhos de tela."
     }
   },

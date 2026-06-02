@@ -166,6 +166,10 @@
     "viewportPreview": {
       "title": "Live Preview",
       "font": "Font Family",
+      "viewportWidth": "Viewport Width",
+      "computedSize": "Computed Size",
+      "decrease": "Decrease viewport width",
+      "increase": "Increase viewport width",
       "note": "Note: The <code>vw</code> unit is relative to your browser viewport. For accurate responsive testing, use this preview to check typography appearance, and Chrome DevTools to test different screen sizes."
     }
   },
